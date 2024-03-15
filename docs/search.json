@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Excel PowerQuery Intro",
     "section": "",
-    "text": "About this site"
+    "text": "let Source\n\nin Result\nthis"
+  },
+  {
+    "objectID": "index.html#a-quick-review-of-relational-database",
+    "href": "index.html#a-quick-review-of-relational-database",
+    "title": "Excel PowerQuery Intro",
+    "section": "",
+    "text": "let Source\n\nin Result\nthis"
   },
   {
     "objectID": "index.html#using-powerquery",
@@ -42,17 +49,17 @@
     "text": "Data export"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Excel PowerQuery Intro",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "let Source"
+    "text": "Fisher,R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76."
   },
   {
-    "objectID": "index.html#a-quick-review-of-relational-database",
-    "href": "index.html#a-quick-review-of-relational-database",
-    "title": "Excel PowerQuery Intro",
+    "objectID": "about.html#references",
+    "href": "about.html#references",
+    "title": "About",
     "section": "",
-    "text": "let Source"
+    "text": "Fisher,R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76."
   }
 ]
