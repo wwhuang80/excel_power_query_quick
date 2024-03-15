@@ -1,0 +1,29 @@
+---
+title: "Excel PowerQuery Intro"
+format: 
+    html:
+        toc: true
+        css: styles.css
+---
+
+## A quick review of relational database
+
+```default
+let Source
+
+in Result
+
+```
+
+[this](./data/iris.csv)
+
+
+## Using PowerQuery
+
+## Data ingestion
+
+## Data transformation
+
+## Custom queries
+
+## Data export
