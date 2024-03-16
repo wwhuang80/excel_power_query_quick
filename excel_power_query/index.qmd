@@ -8,15 +8,141 @@ format:
 
 ## A quick review of relational database
 
-```default
-let Source
+* Relational Database (RDBMS)
+    + Tables (Tables): collection of relations
+    + Columns (Fields / Attributes): a variable (with the associated data type). 
+    + Rows (Record): a distinct collection of attributes
+    + Primary Key: a column that contains a unique value for each record
+    + Foreign Key: a column that references the primary key in another table
 
-in Result
+### Codd's Third Normal Form: 
+1. **No repeating groups of data. Separate repeating data into tables.**
 
-```
+:::{.columns style='display: flex !important;'}
+::::{.column width="45%"}
+| Student          | College | Major            | Score |
+|------------------|-----|------------------|-----|-----|
+| Alice | L&S | Computer Science | 60 |
+| Alice | L&S | Computer Science | 70 |
+| Bob | Ag  | Economics       | 65 |
+| Cathy| CBS  | Biology         | 90 |
+::::
+::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
+ =>
+::::
+::::{.column width="45%"}
+| Student          | Test | Score |
+|------------------|-----|-----|
+| Alice | Midterm  | 60 |
+| Alice | Final | 70 |
+| Bob | Midterm | 65 |
+| Cathy| Midterm | 90 |
 
-[this](./data/iris.csv)
+| Student | College | Major |
+|----|----|------|
+| Alice | L&S | Computer Science |
+| Bob | Ag | Economics |
+| Cathy | CBS| Biology |
+::::
+:::
 
+2. **All non-key columns are only dependent on the primary key.**
+
+:::{.columns style='display: flex !important;'}
+::::{.column width="45%"}
+| Student | College | Major |
+|----|----|------|
+| Alice | L&S | Computer Science |
+| Bob | Ag | Economics |
+| Cathy | CBS| Biology |
+::::
+
+::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
+ =>
+::::
+
+::::{.column width="45%"}
+| Student |Major |
+|----|-----|
+| Alice | Computer Science |
+| Bob | Economics |
+| Cathy | Biology |
+
+| College | Major |
+|-----|------|
+| L&S | Computer Science |
+| Ag | Economics |
+| CBS | Biology |
+::::
+:::
+
+3. **No transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.**
+
+:::{.columns style='display: flex !important;'}
+::::{.column width="45%"}
+| Student | College | Major | Major Code |
+|----|----|------|----| 
+| Alice | L&S | Computer Science | LCOM |
+| Bob | Ag | Economics | AECO |
+| Cathy | CBS| Biology | CBIO |
+::::
+
+::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
+ =>
+::::
+
+::::{.column width="45%"}
+| Student | Major Code |
+|----|----| 
+| Alice | LCOM |
+| Bob | AECO |
+| Cathy | CBIO |
+
+| Major | Major Code |
+|----|----| 
+| Computer Science | LCOM |
+| Economics | AECO |
+| Biology | CBIO |
+
+| College | Major |
+|-----|------|
+| L&S | Computer Science |
+| Ag | Economics |
+| CBS | Biology |
+
+::::
+:::
+
+### Hadley Wickham's "tidy data":
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.
+[Wickham, Hadley “Tidy Data”, Journal of Statistical Software, Vol 59, 2014.](https://www.jstatsoft.org/article/view/v059i10)
+
+#### Example of a messy data set
+
+| year | artist | track | time | date.entered | wk1 | wk2 | wk3|
+|---|---|---|---|---|---|---|---| 
+| 2000 | 2 Pac | Baby Don’t Cry | 4:22 | 2000-02-26 | 87 | 82 | 72 |
+| 2000 | 2Ge+her | The Hardest Part Of ... | 3:15 | 2000-09-02 | 91 | 87 | 92 |
+
+ \downarrow
+
+| year | artist | time | track | date | week | rank |
+|---|---|---|---|---|---|---|
+| 2000 | 2 Pac | 4:22 | Baby Don’t Cry | 2000-02-26 |  1 | 87 |
+| 2000 | 2 Pac | 4:22 | Baby Don’t Cry | 2000-03-04 |  2 | 82 |
+| 2000 | 2 Pac | 4:22 | Baby Don’t Cry | 2000-03-11 | 3 | 72 |
+| 2000 | 2Ge+her | 3:15 | The Hardest Part Of ... | 2000-09-02 | 1 | 91 |
+| 2000 | 2Ge+her | 3:15 | The Hardest Part Of ... | 2000-09-09 | 2 | 87 |
+| 2000 | 2Ge+her | 3:15 | The Hardest Part Of ... | 2000-09-16 | 3 | 92 |
+
+## ETL Extract, Transform, Load
+* Tools for extracting and transforming data:
+    + Splitting Columns
+    + Combining Columns
+    + Unpivot (a.k.a. unstack)
+    + Pivot (a.k.a. stack)
 
 ## Using PowerQuery
 
