@@ -9,13 +9,22 @@ format:
 ## A quick review of relational database
 
 * Relational Database (RDBMS)
-    + Tables (Tables): collection of relations
-    + Columns (Fields / Attributes): a variable (with the associated data type). 
-    + Rows (Record): a distinct collection of attributes
-    + Primary Key: a column that contains a unique value for each record
-    + Foreign Key: a column that references the primary key in another table
+    + [Relational model](https://en.wikipedia.org/wiki/Relational_model):
+        - Developed by Edgar F. Codd
+        - Based on the mathematical concept of relations
+    + SQL (Structured Query Language):
+        - Initially called SEQUEL (Structured English Query Language)
+        - Based on [relational algerbra](https://en.wikipedia.org/wiki/Relational_algebra)
+    + Elements of modern RDBMS:
+        - Tables (Tables): collection of relations
+        - Columns (Fields / Attributes): a variable (with the associated data type). 
+        - Rows (Record): a distinct collection of attributes
+        - Primary Key: a column that contains a unique value for each record
+        - Foreign Key: a column that references the primary key in another table
+        - Index: additional data structure that associates an identifier with a row and/or a column (Excel row or column number)
 
-### Codd's Third Normal Form: 
+### Codd's Third Normal Form (3NF): 
+* Developed to improve the efficiency of a database system.
 1. **No repeating groups of data. Separate repeating data into tables.**
 
 :::{.columns style='display: flex !important;'}
@@ -58,7 +67,7 @@ format:
 ::::
 
 ::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
- =>
+\rightarrow
 ::::
 
 ::::{.column width="45%"}
@@ -88,7 +97,7 @@ format:
 ::::
 
 ::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
- =>
+ \rightarrow
 ::::
 
 ::::{.column width="45%"}
@@ -113,13 +122,12 @@ format:
 ::::
 :::
 
-### Hadley Wickham's "tidy data":
+### Hadley Wickham's [*tidy data*](https://www.jstatsoft.org/article/view/v059i10):
 1. Each variable forms a column.
 2. Each observation forms a row.
 3. Each type of observational unit forms a table.
-[Wickham, Hadley “Tidy Data”, Journal of Statistical Software, Vol 59, 2014.](https://www.jstatsoft.org/article/view/v059i10)
 
-#### Example of a messy data set
+##### Example of a messy data set (also known as wide format)
 
 | year | artist | track | time | date.entered | wk1 | wk2 | wk3|
 |---|---|---|---|---|---|---|---| 
@@ -127,6 +135,8 @@ format:
 | 2000 | 2Ge+her | The Hardest Part Of ... | 3:15 | 2000-09-02 | 91 | 87 | 92 |
 
  \downarrow
+
+#### Example of a tidy data set (also known as tall format)
 
 | year | artist | time | track | date | week | rank |
 |---|---|---|---|---|---|---|
@@ -137,19 +147,63 @@ format:
 | 2000 | 2Ge+her | 3:15 | The Hardest Part Of ... | 2000-09-09 | 2 | 87 |
 | 2000 | 2Ge+her | 3:15 | The Hardest Part Of ... | 2000-09-16 | 3 | 92 |
 
-## ETL Extract, Transform, Load
+
+## Data pipeline
+```{mermaid}
+---
+title: Data Pipeline
+---
+flowchart TB
+    A[data entry] --> D{data ingestion}
+    B[sensors] --> D
+    C[applications] --> D
+    D --> E["data warehouse"]
+    E --> F{Extract Transform Load}
+    F --> G[reports]
+    F --> H[dashboards]
+    F --> I[predictive models]
+
+```
+
+### ETL Extract, Transform, Load
+* Actions to transform data into Codd's 3NF:
+    + Create new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)
+    + Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redunant columns
+* Actions to transform data from Codd's 3NF:
+    + Merge (known as JOIN in relational algebra)
 * Tools for extracting and transforming data:
-    + Splitting Columns
-    + Combining Columns
-    + Unpivot (a.k.a. unstack)
-    + Pivot (a.k.a. stack)
+    + Pivot (tranform data from tall to wide)
+    + Unpivot (transform data from wide to tall)
+    + Stack (create hierarchical index)
+    + Unstack (convert hierarchical index into columns)
+    + Splitting columns
+    + Combining columns
 
-## Using PowerQuery
+## Using PowerQuery to perform ETL
 
-## Data ingestion
+### Excel Version
+* Use the latest version of Excel if possible (Office 365)
 
-## Data transformation
+### Sourcing data
 
-## Custom queries
+### Merging tables (JOIN)
+* [Primer on SQL JOIN (Wikipedia)](https://en.wikipedia.org/wiki/Join_(SQL))
+* [PowerQuery References on Table.Join](https://learn.microsoft.com/en-us/powerquery-m/table-join)
 
-## Data export
+#### Full Outer Join
+
+#### Inner Join
+
+#### Left Outer Join Example
+
+#### Left Anti Join Example
+
+### Filter rows 
+
+### Aggregate data with GROUP BY
+
+### Pivot and Unpivot data
+
+### Custom queries (Power Query M formula language)
+
+## Data Export
