@@ -182,15 +182,35 @@ flowchart TB
 ## Using PowerQuery to perform ETL
 
 ### Excel Version
-* Use the latest version of Excel if possible (Office 365)
+* It is recommended to use the latest version of Excel to access all the latest features. Download from [office.ucdavis.edu](https://office.ucdavis.edu).
+* Sample files are listed here:
+    - [source data file](data/source_data_file.xlsx)
+    - [power query sample file](data/power_query_sample.xlsx)
 
 ### Sourcing data
 
+* Data sources can be other Excel files, files, a database connection, or other data sources.
+
+#### How to:
+
+1. Go to the **Data** tab. 
+2. Click on the top left button *Get Data (Power Query)*. 
+3. Choose the data source. (For this example, import from Excel and connect to the source data file.)
+4. Promote headers if the first row of data contains headers. Otherwise, manually rename columns. 
+
+#### Best practices
+
+* Always confirm column names, set data types for each columns. (Make sure to *always* set dollar values as Currency.) 
+* Set key columns as needed.
+* Perform subsequent queries by referencing on the initial connection. Minimize the number of outside connections. 
+    - In the PowerQuery Editor, right-click on the query and create a *reference*.
+
 ### Merging tables (JOIN)
-* [Primer on SQL JOIN (Wikipedia)](https://en.wikipedia.org/wiki/Join_(SQL))
+* [Primer on SQL JOIN (Wikipedia)](https://en.wikipedia.org/wiki/Join_(SQL)){target='_blank'}
 * [PowerQuery References on Table.Join](https://learn.microsoft.com/en-us/powerquery-m/table-join)
 
 #### Full Outer Join
+* Sequence 
 
 #### Inner Join
 
