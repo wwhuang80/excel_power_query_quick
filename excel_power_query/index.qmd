@@ -472,6 +472,7 @@ In addition to all the button actions available (not all are covered here), you 
 
 ## Exporting
 There are many ways to export the data, including: 
+
 * Power BI
 * Power Pivot
 * Copy/Paste to other documents.
