@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <li>SQL (Structured Query Language):
 <ul>
 <li>Initially called SEQUEL (Structured English Query Language)</li>
-<li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algerbra</a></li>
+<li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algebra</a></li>
 </ul></li>
 <li>Examples of RDBMS:
 <ul>
@@ -650,11 +650,12 @@ flowchart TB
     A[data entry] --&gt; D{data ingestion}
     B[sensors] --&gt; D
     C[applications] --&gt; D
-    D --&gt; E["data warehouse"]
+    D --&gt; E["data store"]
     E --&gt; F{Extract Transform Load}
-    F --&gt; G[reports]
-    F --&gt; H[dashboards]
-    F --&gt; I[predictive models]
+    F --&gt; G[analysis]
+    F --&gt; H[reports]
+    F --&gt; I[dashboards]
+    F --&gt; J[models]
 
 </pre>
 </div>
@@ -1213,7 +1214,7 @@ flowchart TB
 <section id="pivot-and-unpivot-data" class="level3">
 <h3 class="anchored" data-anchor-id="pivot-and-unpivot-data">Pivot and Unpivot data</h3>
 <ul>
-<li>Select the column to pivot (change from tall to wide format), then click on the <strong>Pivot Column</strong> button. Choose the <em>Values Column</em> to use for the nuw columns. If aggregation is needed, click on the <em>Advanced Options</em> to aggregate the values.</li>
+<li>Select the column to pivot (change from tall to wide format), then click on the <strong>Pivot Column</strong> button. Choose the <em>Values Column</em> to use for the new columns. If aggregation is needed, click on the <em>Advanced Options</em> to aggregate the values.</li>
 </ul>
 <section id="example-5" class="level4">
 <h4 class="anchored" data-anchor-id="example-5">Example:</h4>
@@ -1235,7 +1236,12 @@ flowchart TB
 </section>
 <section id="exporting" class="level2">
 <h2 class="anchored" data-anchor-id="exporting">Exporting</h2>
-<p>There are many ways to export the data, including: * Power BI * Power Pivot * Copy/Paste to other documents.</p>
+<p>There are many ways to export the data, including:</p>
+<ul>
+<li>Power BI</li>
+<li>Power Pivot</li>
+<li>Copy/Paste to other documents.</li>
+</ul>
 
 
 </section>
