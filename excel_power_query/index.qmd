@@ -15,6 +15,10 @@ format:
     + SQL (Structured Query Language):
         - Initially called SEQUEL (Structured English Query Language)
         - Based on [relational algerbra](https://en.wikipedia.org/wiki/Relational_algebra)
+     + Examples of RDBMS:
+        - Oracle
+        - Postgres
+        - MySQL   
     + Elements of modern RDBMS:
         - Tables (Tables): collection of relations
         - Columns (Fields / Attributes): a variable (with the associated data type). 
@@ -23,11 +27,12 @@ format:
         - Foreign Key: a column that references the primary key in another table
         - Index: additional data structure that associates an identifier with a row and/or a column (Excel row or column number)
 
+
 ### Codd's Third Normal Form (3NF): 
 * Developed to improve the efficiency of a database system.
 1. **No repeating groups of data. Separate repeating data into tables.**
 
-:::{.columns style='display: flex !important;'}
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
 ::::{.column width="45%"}
 | Student          | College | Major            | Score |
 |------------------|-----|------------------|-----|-----|
@@ -36,7 +41,7 @@ format:
 | Bob | Ag  | Economics       | 65 |
 | Cathy| CBS  | Biology         | 90 |
 ::::
-::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
+::::{.column width="10%" style='background-color: AliceBlue; display: flex; justify-content: center; align-items: center;'}
  =>
 ::::
 ::::{.column width="45%"}
@@ -57,7 +62,7 @@ format:
 
 2. **All non-key columns are only dependent on the primary key.**
 
-:::{.columns style='display: flex !important;'}
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
 ::::{.column width="45%"}
 | Student | College | Major |
 |----|----|------|
@@ -67,7 +72,7 @@ format:
 ::::
 
 ::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
-\rightarrow
+&rarr;
 ::::
 
 ::::{.column width="45%"}
@@ -87,7 +92,7 @@ format:
 
 3. **No transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.**
 
-:::{.columns style='display: flex !important;'}
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
 ::::{.column width="45%"}
 | Student | College | Major | Major Code |
 |----|----|------|----| 
@@ -97,7 +102,7 @@ format:
 ::::
 
 ::::{.column width="10%" style='display: flex; justify-content: center; align-items: center;'}
- \rightarrow
+ &rarr;
 ::::
 
 ::::{.column width="45%"}
@@ -123,12 +128,14 @@ format:
 :::
 
 ### Hadley Wickham's [*tidy data*](https://www.jstatsoft.org/article/view/v059i10):
+An influential article on how to structure data for statistical learning and analysis.
+
+What makes a dataset "tidy":
 1. Each variable forms a column.
 2. Each observation forms a row.
 3. Each type of observational unit forms a table.
 
-##### Example of a messy data set (also known as wide format)
-
+##### Example of a messy data set (also known as wide format){style='background-color: AliceBlue;'}
 | year | artist | track | time | date.entered | wk1 | wk2 | wk3|
 |---|---|---|---|---|---|---|---| 
 | 2000 | 2 Pac | Baby Don’t Cry | 4:22 | 2000-02-26 | 87 | 82 | 72 |
@@ -136,7 +143,7 @@ format:
 
  \downarrow
 
-#### Example of a tidy data set (also known as tall format)
+#### Example of a tidy data set (also known as tall format){style='background-color: AliceBlue;'}
 
 | year | artist | time | track | date | week | rank |
 |---|---|---|---|---|---|---|
@@ -168,11 +175,11 @@ flowchart TB
 ### ETL Extract, Transform, Load
 * Actions to transform data into Codd's 3NF:
     + Create new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)
-    + Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redunant columns
+    + Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redundant columns
 * Actions to transform data from Codd's 3NF:
     + Merge (known as JOIN in relational algebra)
 * Tools for extracting and transforming data:
-    + Pivot (tranform data from tall to wide)
+    + Pivot (transform data from tall to wide)
     + Unpivot (transform data from wide to tall)
     + Stack (create hierarchical index)
     + Unstack (convert hierarchical index into columns)
@@ -182,20 +189,35 @@ flowchart TB
 ## Using PowerQuery to perform ETL
 
 Q: What is [Power Query](https://powerquery.microsoft.com/en-us/){target='_blank'}?
+
 A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience. 
 
-* Coding is not required
-* The underlying code is available to check for correctness and reproducibility 
-* Coding can be done to perform more complex analysis
+Q: How does the query work?
+
+A: A query workflow (called an M Script) reads the data source and performs transformations on the data according to the query and loads the output.
+
+```{mermaid}
+flowchart LR
+    A[M Script] --->|1.read| B[Power Query Engine]
+    B --->|2.requests| C[Data Source]
+    C --->|3.sends data| B
+    B --->|4.loads data| D[Output] 
+
+```
+
+* A query (M Script) is reusable. (You can run the same query with updated source files to get updated results.)
+* Each step of a query transformation is viewable for troubleshooting.
+* The query is portable. (Because it's a documented workflow and not a sequence of user actions, it can be shared with others.)
+* The underlying M Script is available to check for correctness and reproducibility.
+* Coding is not required.
+* Coding can be done to perform more complex analysis.
 
 ### Excel Version
 * It is recommended to use the latest version of Excel to access all the latest features. Download from [office.ucdavis.edu](https://office.ucdavis.edu).
-* Sample files are listed here:
+* Sample files for this reader are listed here:
     - [names](data/names.xlsx)
     - [transaction](data/transactions.xlsx)
     - [power_query_examples](data/power_query_examples.xlsx)
-
-
 
 ### Sourcing data
 
@@ -207,6 +229,18 @@ A: Microsoft’s Data Connectivity and Data Preparation technology that lets you
 2. Click on the top left button *Get Data (Power Query)*. 
 3. Choose the data source. (For this example, import from Excel and connect to the source data file.)
 4. Promote headers if the first row of data contains headers. Otherwise, manually rename columns. 
+5. To change the Data Type of a column, click on the column and then click the *Data Type* button. 
+
+#### Key buttons
+* In the *Data* ribbon, click on **Queries & Connections** to quickly see a list of queries. 
+
+![Data ribbon](data/Data%20Ribbon.PNG){width=80%}
+
+* Right-click on a query and click *Edit* to open the *Power Query Editor*, or click *Load To* to change the destination sheet for the query. 
+* In the *Power Query Editor*, check the *APPLIED STEPS* to sequentially see how each transformation step is carried out.
+* In the *Power Query Editor*, click on *Advanced Editor* to see the M Script Code. The code can be copied/pasted as a quick way to share the query.
+
+![a screenshot of Power Query Editor](data/PQE_screenshot.PNG){width=80%}
 
 #### Best practices
 
@@ -215,31 +249,204 @@ A: Microsoft’s Data Connectivity and Data Preparation technology that lets you
 * Perform subsequent queries by referencing on the initial connection. Minimize the number of outside connections. 
     - In the PowerQuery Editor, right-click on the query and create a *reference*.
 
-#### Try: 
-1. Load data from the [names.xlsx](data/names.xlsx) file and from the [transactions.xlsx](data/transactions.xlsx) file.
+#### Example: 
+1. Load data from the [names.xlsx](data/names.xlsx) file and from the [transactions.xlsx](data/transactions.xlsx) file by using the **Get Data** button in the *Data* ribbon.
+2. Create a reference to the initial query by right-clicking on the query and choose *Reference*. Avoid making multiple queries to the same source.
+
+![Data ribbon](data/Data%20Ribbon.PNG)
 
 ### Merging tables (JOIN)
 * [Primer on SQL JOIN (Wikipedia)](https://en.wikipedia.org/wiki/Join_(SQL)){target='_blank'}
 * [PowerQuery References on Table.Join](https://learn.microsoft.com/en-us/powerquery-m/table-join){target='_blank'}
+* To merge the names and transactions tables:
+1. Select the left table (the first table selected is the *left* table)
+2. Click the **Merge Queries** button.
+3. Select the second table to merge (this is the *right* table)
+4. Select the index column to merge on.
+5. Press **Ok**.
+6. If the merge results in a *nested column*, you can expand the *nested column* as needed by clicking on the button in the column name.
 
-#### Full Outer Join
-* Sequence 
+![Power Query Editor Home panel](data/PQE_home.PNG)
 
-#### Inner Join
+#### Some Types of Joins available
 
-#### Left Outer Join Example
+1. Full Outer Join
 
-#### Left Anti Join Example
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
+::::{.column width="45%"}
+| Left Index | Left Value | 
+| ---------- | -----------|
+| A | 10 |
+| B | 20 |
+| C | 30 |
 
-### Filter rows 
+| Right Index | Right Value | 
+| ---------- | -----------|
+| B | 200 |
+| C | 300 |
+| D | 400 |
+
+::::
+::::{.column style='display: flex; justify-content: center; align-items: center;'}
+&rarr;
+::::
+::::{.column width="45%" style='display: flex; align-items:center;'}
+| Index | Left Value | Right Value | 
+| ----- | -----------| ----------  |
+| A | 10 | null |
+| B | 20 | 200 |
+| C | 30 | 300 |
+| D | null | 400|
+
+::::
+:::
+
+2. Inner Join
+
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
+::::{.column width="45%"}
+| Left Index | Left Value | 
+| ---------- | -----------|
+| A | 10 |
+| B | 20 |
+| C | 30 |
+
+| Right Index | Right Value | 
+| ---------- | -----------|
+| B | 200 |
+| C | 300 |
+| D | 400 |
+
+::::
+::::{.column style='display: flex; justify-content: center; align-items: center;'}
+&rarr;
+::::
+::::{.column width="45%" style='display: flex; align-items:center;'}
+| Index | Left Value | Right Value | 
+| ----- | -----------| ----------  |
+| B | 20 | 200 |
+| C | 30 | 300 |
+
+::::
+:::
+
+3. Left Outer Join
+
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
+::::{.column width="45%"}
+| Left Index | Left Value | 
+| ---------- | -----------|
+| A | 10 |
+| B | 20 |
+| C | 30 |
+
+| Right Index | Right Value | 
+| ---------- | -----------|
+| B | 200 |
+| C | 300 |
+| D | 400 |
+
+::::
+::::{.column style='display: flex; justify-content: center; align-items: center;'}
+&rarr;
+::::
+::::{.column width="45%" style='display: flex; align-items:center;'}
+| Index | Left Value | Right Value | 
+| ----- | -----------| ----------  |
+| A| 10 | null
+| B | 20 | 200 |
+| C | 30 | 300 |
+
+::::
+:::
+
+4. Left Anti Join
+
+:::{.columns style='background-color: AliceBlue; display: flex !important;'}
+::::{.column width="45%"}
+| Left Index | Left Value | 
+| ---------- | -----------|
+| A | 10 |
+| B | 20 |
+| C | 30 |
+
+| Right Index | Right Value | 
+| ---------- | -----------|
+| B | 200 |
+| C | 300 |
+| D | 400 |
+
+::::
+::::{.column style='display: flex; justify-content: center; align-items: center;'}
+&rarr;
+::::
+::::{.column width="45%" style='display: flex; align-items:center;'}
+| Index | Left Value |
+|------ |----------- |
+| A | 10 |
+
+::::
+:::
+
+#### Example:
+To merge the names and transactions tables:
+1. Select the "names" table (the first table selected is the *left* table)
+2. Click the **Merge Queries** button.
+3. Select the "transactions" table to merge (this is the *right* table)
+4. Select the index column (use the Email column) to merge on.
+5. Press **Ok**.
+6. If the merge results in a *nested column*, you can expand the *nested column* as needed by clicking on the button in the column name.
+
+### Filter rows
+* Keep or remove duplicates by clicking on the **Keep Rows** button or the **Remove Rows** button.
+* Filter row by clicking on the filter button on the column name. 
+
+#### Example:
+* Filter out Alice by clicking the Email Column and unchecking alice.wonderland@example.com
+
+### Combining columns, splitting columns, create new columns based on other columns, or remove columns
+* To merge multiple columns: select the columns, then click the **Merge Columns** button in the **Transform** panel.
+* To split a column: select the column, then click the **Split Column** button in the **Transform** panel.
+* Create new columns: 
+    + Conditional columns, in the **Add Column** panel, click the **Conditional Column** button, and fill out the condition.
+    + Custom Column: click the **Custom Column** button, and fill out the formula.
+    + The **Column From Examples** tool can help with generating formulas, but it's important to make sure that the formula is correct before proceeding.
+* Remove columns:
+    + Click on the **Choose Columns** or **Remove Columns** button.
+
+![Power Query Editor Transform panel](data/PQE_transform.PNG)
+
+
+![Power Query Editor Add Column panel](data/PQE_add_column.PNG)
+
+#### Example
+* Combine the Last Name and the First Name by selecting both Columns and click the **Merge Columns** button.
+* Create new columns called **Month** and **Year** by selecting the *Transaction Date* column, then click the **Date** button, and then choose "Year" and "Month" respectively.
+* Sort the records by the *Transaction Date* and clicking the button on the column name and sort accordingly.
+* Remove the *Transaction Date* column by selecting the column first, then clicking the *Remove Columns** button.
 
 ### Aggregate data with GROUP BY
+* In the *Transform Panel*, click on the **Group By** button, choose the **Advanced** option, then add the columns to grouping (the order of grouping matters). 
+* For aggregation, choose the *New column name*, the *Operation* to aggregate the data, and the *Column* the operation is performed on. It's possible to aggregate on multiple columns. 
+* Columns not used in *grouping* or *aggregation* are dropped fro the output.
+
+#### Example:
+* Group the table by Name, Vendor, Month, Year, use "Transactions Amount Per Vendor" as the new column name, *Sum* as the Operation, and use "Transaction Amount" as the *Column*.
 
 ### Pivot and Unpivot data
+* Select the column to pivot (change from tall to wide format), then click on the **Pivot Column** button. Choose the *Values Column* to use for the nuw columns. If aggregation is needed, click on the *Advanced Options* to aggregate the values.
+
+#### Example:
+* Select the *Vendor* column, then click on the **Pivot Column** button, use "Transactions Amount Per Vendor" as the *Values Column*, and Aggregate using *Sum*.
 
 ### Custom queries (Power Query M formula language)
+In addition to all the button actions available (not all are covered here), you can create more complex queries by using the M Query Language directly. 
+
+#### Example:
+* An example of a custom function called "GetRunningTotal" is included in the file.
 
 ## Exporting
+There are many ways to export the data, including: 
 * Power BI
 * Power Pivot
-* Copy/Paste
+* Copy/Paste to other documents.

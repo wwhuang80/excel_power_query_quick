@@ -130,6 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sourcing-data" id="toc-sourcing-data" class="nav-link" data-scroll-target="#sourcing-data">Sourcing data</a></li>
   <li><a href="#merging-tables-join" id="toc-merging-tables-join" class="nav-link" data-scroll-target="#merging-tables-join">Merging tables (JOIN)</a></li>
   <li><a href="#filter-rows" id="toc-filter-rows" class="nav-link" data-scroll-target="#filter-rows">Filter rows</a></li>
+  <li><a href="#combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" id="toc-combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" class="nav-link" data-scroll-target="#combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns">Combining columns, splitting columns, create new columns based on other columns, or remove columns</a></li>
   <li><a href="#aggregate-data-with-group-by" id="toc-aggregate-data-with-group-by" class="nav-link" data-scroll-target="#aggregate-data-with-group-by">Aggregate data with GROUP BY</a></li>
   <li><a href="#pivot-and-unpivot-data" id="toc-pivot-and-unpivot-data" class="nav-link" data-scroll-target="#pivot-and-unpivot-data">Pivot and Unpivot data</a></li>
   <li><a href="#custom-queries-power-query-m-formula-language" id="toc-custom-queries-power-query-m-formula-language" class="nav-link" data-scroll-target="#custom-queries-power-query-m-formula-language">Custom queries (Power Query M formula language)</a></li>
@@ -175,6 +176,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Initially called SEQUEL (Structured English Query Language)</li>
 <li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra">relational algerbra</a></li>
 </ul></li>
+<li>Examples of RDBMS:
+<ul>
+<li>Oracle</li>
+<li>Postgres</li>
+<li>MySQL<br>
+</li>
+</ul></li>
 <li>Elements of modern RDBMS:
 <ul>
 <li>Tables (Tables): collection of relations</li>
@@ -194,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><strong>No repeating groups of data. Separate repeating data into tables.</strong></li>
 </ol>
-<div class="columns" style="display: flex !important;">
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
 <div class="column" style="width:45%;">
 <table class="table">
 <thead>
@@ -237,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+</div><div class="column" style="background-color: AliceBlue; display: flex; justify-content: center; align-items: center;">
 <p>=&gt;</p>
 </div><div class="column" style="width:45%;">
 <table class="table">
@@ -302,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li><strong>All non-key columns are only dependent on the primary key.</strong></li>
 </ol>
-<div class="columns" style="display: flex !important;">
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
 <div class="column" style="width:45%;">
 <table class="table">
 <thead>
@@ -331,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div><div class="column" style="display: flex; justify-content: center; align-items: center;">
-
+<p>→</p>
 </div><div class="column" style="width:45%;">
 <table class="table">
 <thead>
@@ -382,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="3" type="1">
 <li><strong>No transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.</strong></li>
 </ol>
-<div class="columns" style="display: flex !important;">
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
 <div class="column" style="width:45%;">
 <table class="table">
 <thead>
@@ -415,7 +423,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div><div class="column" style="display: flex; justify-content: center; align-items: center;">
-<p></p>
+<p>→</p>
 </div><div class="column" style="width:45%;">
 <table class="table">
 <thead>
@@ -488,13 +496,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="hadley-wickhams-tidy-data" class="level3">
 <h3 class="anchored" data-anchor-id="hadley-wickhams-tidy-data">Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10"><em>tidy data</em></a>:</h3>
-<ol type="1">
-<li>Each variable forms a column.</li>
-<li>Each observation forms a row.</li>
-<li>Each type of observational unit forms a table.</li>
-</ol>
-<section id="example-of-a-messy-data-set-also-known-as-wide-format" class="level5">
-<h5 class="anchored" data-anchor-id="example-of-a-messy-data-set-also-known-as-wide-format">Example of a messy data set (also known as wide format)</h5>
+<p>An influential article on how to structure data for statistical learning and analysis.</p>
+<p>What makes a dataset “tidy”: 1. Each variable forms a column. 2. Each observation forms a row. 3. Each type of observational unit forms a table.</p>
+<section id="example-of-a-messy-data-set-also-known-as-wide-format" class="level5" style="background-color: AliceBlue;">
+<h5 style="background-color: AliceBlue;" class="anchored" data-anchor-id="example-of-a-messy-data-set-also-known-as-wide-format">Example of a messy data set (also known as wide format)</h5>
 <table class="table">
 <colgroup>
 <col style="width: 12%">
@@ -543,8 +548,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p></p>
 </section>
-<section id="example-of-a-tidy-data-set-also-known-as-tall-format" class="level4">
-<h4 class="anchored" data-anchor-id="example-of-a-tidy-data-set-also-known-as-tall-format">Example of a tidy data set (also known as tall format)</h4>
+<section id="example-of-a-tidy-data-set-also-known-as-tall-format" class="level4" style="background-color: AliceBlue;">
+<h4 style="background-color: AliceBlue;" class="anchored" data-anchor-id="example-of-a-tidy-data-set-also-known-as-tall-format">Example of a tidy data set (also known as tall format)</h4>
 <table class="table">
 <colgroup>
 <col style="width: 14%">
@@ -658,7 +663,7 @@ flowchart TB
 <li>Actions to transform data into Codd’s 3NF:
 <ul>
 <li>Create new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)</li>
-<li>Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redunant columns</li>
+<li>Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redundant columns</li>
 </ul></li>
 <li>Actions to transform data from Codd’s 3NF:
 <ul>
@@ -666,7 +671,7 @@ flowchart TB
 </ul></li>
 <li>Tools for extracting and transforming data:
 <ul>
-<li>Pivot (tranform data from tall to wide)</li>
+<li>Pivot (transform data from tall to wide)</li>
 <li>Unpivot (transform data from wide to tall)</li>
 <li>Stack (create hierarchical index)</li>
 <li>Unstack (convert hierarchical index into columns)</li>
@@ -678,17 +683,40 @@ flowchart TB
 </section>
 <section id="using-powerquery-to-perform-etl" class="level2">
 <h2 class="anchored" data-anchor-id="using-powerquery-to-perform-etl">Using PowerQuery to perform ETL</h2>
-<p>Q: What is <a href="https://powerquery.microsoft.com/en-us/" target="_blank">Power Query</a>? A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience.</p>
+<p>Q: What is <a href="https://powerquery.microsoft.com/en-us/" target="_blank">Power Query</a>?</p>
+<p>A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience.</p>
+<p>Q: How does the query work?</p>
+<p>A: A query workflow (called an M Script) reads the data source and performs transformations on the data according to the query and loads the output.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[M Script] ---&gt;|1.read| B[Power Query Engine]
+    B ---&gt;|2.requests| C[Data Source]
+    C ---&gt;|3.sends data| B
+    B ---&gt;|4.loads data| D[Output] 
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ul>
-<li>Coding is not required</li>
-<li>The underlying code is available to check for correctness and reproducibility</li>
-<li>Coding can be done to perform more complex analysis</li>
+<li>A query (M Script) is reusable. (You can run the same query with updated source files to get updated results.)</li>
+<li>Each step of a query transformation is viewable for troubleshooting.</li>
+<li>The query is portable. (Because it’s a documented workflow and not a sequence of user actions, it can be shared with others.)</li>
+<li>The underlying M Script is available to check for correctness and reproducibility.</li>
+<li>Coding is not required.</li>
+<li>Coding can be done to perform more complex analysis.</li>
 </ul>
 <section id="excel-version" class="level3">
 <h3 class="anchored" data-anchor-id="excel-version">Excel Version</h3>
 <ul>
 <li>It is recommended to use the latest version of Excel to access all the latest features. Download from <a href="https://office.ucdavis.edu">office.ucdavis.edu</a>.</li>
-<li>Sample files are listed here:
+<li>Sample files for this reader are listed here:
 <ul>
 <li><a href="data/names.xlsx">names</a></li>
 <li><a href="data/transactions.xlsx">transaction</a></li>
@@ -708,7 +736,31 @@ flowchart TB
 <li>Click on the top left button <em>Get Data (Power Query)</em>.</li>
 <li>Choose the data source. (For this example, import from Excel and connect to the source data file.)</li>
 <li>Promote headers if the first row of data contains headers. Otherwise, manually rename columns.</li>
+<li>To change the Data Type of a column, click on the column and then click the <em>Data Type</em> button.</li>
 </ol>
+</section>
+<section id="key-buttons" class="level4">
+<h4 class="anchored" data-anchor-id="key-buttons">Key buttons</h4>
+<ul>
+<li>In the <em>Data</em> ribbon, click on <strong>Queries &amp; Connections</strong> to quickly see a list of queries.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/Data Ribbon.PNG" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Data ribbon</figcaption>
+</figure>
+</div>
+<ul>
+<li>Right-click on a query and click <em>Edit</em> to open the <em>Power Query Editor</em>, or click <em>Load To</em> to change the destination sheet for the query.</li>
+<li>In the <em>Power Query Editor</em>, check the <em>APPLIED STEPS</em> to sequentially see how each transformation step is carried out.</li>
+<li>In the <em>Power Query Editor</em>, click on <em>Advanced Editor</em> to see the M Script Code. The code can be copied/pasted as a quick way to share the query.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/PQE_screenshot.PNG" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>a screenshot of Power Query Editor</figcaption>
+</figure>
+</div>
 </section>
 <section id="best-practices" class="level4">
 <h4 class="anchored" data-anchor-id="best-practices">Best practices</h4>
@@ -721,11 +773,18 @@ flowchart TB
 </ul></li>
 </ul>
 </section>
-<section id="try" class="level4">
-<h4 class="anchored" data-anchor-id="try">Try:</h4>
+<section id="example" class="level4">
+<h4 class="anchored" data-anchor-id="example">Example:</h4>
 <ol type="1">
-<li>Load data from the <a href="data/names.xlsx">names.xlsx</a> file and from the <a href="data/transactions.xlsx">transactions.xlsx</a> file.</li>
+<li>Load data from the <a href="data/names.xlsx">names.xlsx</a> file and from the <a href="data/transactions.xlsx">transactions.xlsx</a> file by using the <strong>Get Data</strong> button in the <em>Data</em> ribbon.</li>
+<li>Create a reference to the initial query by right-clicking on the query and choose <em>Reference</em>. Avoid making multiple queries to the same source.</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/Data Ribbon.PNG" class="img-fluid figure-img"></p>
+<figcaption>Data ribbon</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="merging-tables-join" class="level3">
@@ -733,43 +792,429 @@ flowchart TB
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Join_(SQL)" target="_blank">Primer on SQL JOIN (Wikipedia)</a></li>
 <li><a href="https://learn.microsoft.com/en-us/powerquery-m/table-join" target="_blank">PowerQuery References on Table.Join</a></li>
+<li>To merge the names and transactions tables:</li>
 </ul>
-<section id="full-outer-join" class="level4">
-<h4 class="anchored" data-anchor-id="full-outer-join">Full Outer Join</h4>
-<ul>
-<li>Sequence</li>
-</ul>
+<ol type="1">
+<li>Select the left table (the first table selected is the <em>left</em> table)</li>
+<li>Click the <strong>Merge Queries</strong> button.</li>
+<li>Select the second table to merge (this is the <em>right</em> table)</li>
+<li>Select the index column to merge on.</li>
+<li>Press <strong>Ok</strong>.</li>
+<li>If the merge results in a <em>nested column</em>, you can expand the <em>nested column</em> as needed by clicking on the button in the column name.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/PQE_home.PNG" class="img-fluid figure-img"></p>
+<figcaption>Power Query Editor Home panel</figcaption>
+</figure>
+</div>
+<section id="some-types-of-joins-available" class="level4">
+<h4 class="anchored" data-anchor-id="some-types-of-joins-available">Some Types of Joins available</h4>
+<ol type="1">
+<li>Full Outer Join</li>
+</ol>
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Left Index</th>
+<th>Left Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Right Index</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p>→</p>
+</div><div class="column" style="display: flex; align-items:center;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Left Value</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+<td>null</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+<td>300</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>null</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Inner Join</li>
+</ol>
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Left Index</th>
+<th>Left Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Right Index</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p>→</p>
+</div><div class="column" style="display: flex; align-items:center;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Left Value</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>20</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>30</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Left Outer Join</li>
+</ol>
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Left Index</th>
+<th>Left Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Right Index</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p>→</p>
+</div><div class="column" style="display: flex; align-items:center;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Left Value</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+<td>null</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Left Anti Join</li>
+</ol>
+<div class="columns" style="background-color: AliceBlue; display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Left Index</th>
+<th>Left Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Right Index</th>
+<th>Right Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p>→</p>
+</div><div class="column" style="display: flex; align-items:center;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Left Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="inner-join" class="level4">
-<h4 class="anchored" data-anchor-id="inner-join">Inner Join</h4>
-</section>
-<section id="left-outer-join-example" class="level4">
-<h4 class="anchored" data-anchor-id="left-outer-join-example">Left Outer Join Example</h4>
-</section>
-<section id="left-anti-join-example" class="level4">
-<h4 class="anchored" data-anchor-id="left-anti-join-example">Left Anti Join Example</h4>
+<section id="example-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-1">Example:</h4>
+<p>To merge the names and transactions tables: 1. Select the “names” table (the first table selected is the <em>left</em> table) 2. Click the <strong>Merge Queries</strong> button. 3. Select the “transactions” table to merge (this is the <em>right</em> table) 4. Select the index column (use the Email column) to merge on. 5. Press <strong>Ok</strong>. 6. If the merge results in a <em>nested column</em>, you can expand the <em>nested column</em> as needed by clicking on the button in the column name.</p>
 </section>
 </section>
 <section id="filter-rows" class="level3">
 <h3 class="anchored" data-anchor-id="filter-rows">Filter rows</h3>
+<ul>
+<li>Keep or remove duplicates by clicking on the <strong>Keep Rows</strong> button or the <strong>Remove Rows</strong> button.</li>
+<li>Filter row by clicking on the filter button on the column name.</li>
+</ul>
+<section id="example-2" class="level4">
+<h4 class="anchored" data-anchor-id="example-2">Example:</h4>
+<ul>
+<li>Filter out Alice by clicking the Email Column and unchecking alice.wonderland@example.com</li>
+</ul>
+</section>
+</section>
+<section id="combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" class="level3">
+<h3 class="anchored" data-anchor-id="combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns">Combining columns, splitting columns, create new columns based on other columns, or remove columns</h3>
+<ul>
+<li>To merge multiple columns: select the columns, then click the <strong>Merge Columns</strong> button in the <strong>Transform</strong> panel.</li>
+<li>To split a column: select the column, then click the <strong>Split Column</strong> button in the <strong>Transform</strong> panel.</li>
+<li>Create new columns:
+<ul>
+<li>Conditional columns, in the <strong>Add Column</strong> panel, click the <strong>Conditional Column</strong> button, and fill out the condition.</li>
+<li>Custom Column: click the <strong>Custom Column</strong> button, and fill out the formula.</li>
+<li>The <strong>Column From Examples</strong> tool can help with generating formulas, but it’s important to make sure that the formula is correct before proceeding.</li>
+</ul></li>
+<li>Remove columns:
+<ul>
+<li>Click on the <strong>Choose Columns</strong> or <strong>Remove Columns</strong> button.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/PQE_transform.PNG" class="img-fluid figure-img"></p>
+<figcaption>Power Query Editor Transform panel</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/PQE_add_column.PNG" class="img-fluid figure-img"></p>
+<figcaption>Power Query Editor Add Column panel</figcaption>
+</figure>
+</div>
+<section id="example-3" class="level4">
+<h4 class="anchored" data-anchor-id="example-3">Example</h4>
+<ul>
+<li>Combine the Last Name and the First Name by selecting both Columns and click the <strong>Merge Columns</strong> button.</li>
+<li>Create new columns called <strong>Month</strong> and <strong>Year</strong> by selecting the <em>Transaction Date</em> column, then click the <strong>Date</strong> button, and then choose “Year” and “Month” respectively.</li>
+<li>Sort the records by the <em>Transaction Date</em> and clicking the button on the column name and sort accordingly.</li>
+<li>Remove the <em>Transaction Date</em> column by selecting the column first, then clicking the *Remove Columns** button.</li>
+</ul>
+</section>
 </section>
 <section id="aggregate-data-with-group-by" class="level3">
 <h3 class="anchored" data-anchor-id="aggregate-data-with-group-by">Aggregate data with GROUP BY</h3>
+<ul>
+<li>In the <em>Transform Panel</em>, click on the <strong>Group By</strong> button, choose the <strong>Advanced</strong> option, then add the columns to grouping (the order of grouping matters).</li>
+<li>For aggregation, choose the <em>New column name</em>, the <em>Operation</em> to aggregate the data, and the <em>Column</em> the operation is performed on. It’s possible to aggregate on multiple columns.</li>
+<li>Columns not used in <em>grouping</em> or <em>aggregation</em> are dropped fro the output.</li>
+</ul>
+<section id="example-4" class="level4">
+<h4 class="anchored" data-anchor-id="example-4">Example:</h4>
+<ul>
+<li>Group the table by Name, Vendor, Month, Year, use “Transactions Amount Per Vendor” as the new column name, <em>Sum</em> as the Operation, and use “Transaction Amount” as the <em>Column</em>.</li>
+</ul>
+</section>
 </section>
 <section id="pivot-and-unpivot-data" class="level3">
 <h3 class="anchored" data-anchor-id="pivot-and-unpivot-data">Pivot and Unpivot data</h3>
+<ul>
+<li>Select the column to pivot (change from tall to wide format), then click on the <strong>Pivot Column</strong> button. Choose the <em>Values Column</em> to use for the nuw columns. If aggregation is needed, click on the <em>Advanced Options</em> to aggregate the values.</li>
+</ul>
+<section id="example-5" class="level4">
+<h4 class="anchored" data-anchor-id="example-5">Example:</h4>
+<ul>
+<li>Select the <em>Vendor</em> column, then click on the <strong>Pivot Column</strong> button, use “Transactions Amount Per Vendor” as the <em>Values Column</em>, and Aggregate using <em>Sum</em>.</li>
+</ul>
+</section>
 </section>
 <section id="custom-queries-power-query-m-formula-language" class="level3">
 <h3 class="anchored" data-anchor-id="custom-queries-power-query-m-formula-language">Custom queries (Power Query M formula language)</h3>
+<p>In addition to all the button actions available (not all are covered here), you can create more complex queries by using the M Query Language directly.</p>
+<section id="example-6" class="level4">
+<h4 class="anchored" data-anchor-id="example-6">Example:</h4>
+<ul>
+<li>An example of a custom function called “GetRunningTotal” is included in the file.</li>
+</ul>
+</section>
 </section>
 </section>
 <section id="exporting" class="level2">
 <h2 class="anchored" data-anchor-id="exporting">Exporting</h2>
-<ul>
-<li>Power BI</li>
-<li>Power Pivot</li>
-<li>Copy/Paste</li>
-</ul>
+<p>There are many ways to export the data, including: * Power BI * Power Pivot * Copy/Paste to other documents.</p>
 
 
 </section>
