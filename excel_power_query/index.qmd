@@ -167,11 +167,12 @@ flowchart TB
     A[data entry] --> D{data ingestion}
     B[sensors] --> D
     C[applications] --> D
-    D --> E["data warehouse"]
+    D --> E["data store"]
     E --> F{Extract Transform Load}
-    F --> G[reports]
-    F --> H[dashboards]
-    F --> I[predictive models]
+    F --> G[analysis]
+    F --> H[reports]
+    F --> I[dashboards]
+    F --> J[models]
 
 ```
 
