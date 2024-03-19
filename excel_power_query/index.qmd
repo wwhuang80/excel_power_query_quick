@@ -181,11 +181,21 @@ flowchart TB
 
 ## Using PowerQuery to perform ETL
 
+Q: What is [Power Query](https://powerquery.microsoft.com/en-us/){target='_blank'}?
+A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience. 
+
+* Coding is not required
+* The underlying code is available to check for correctness and reproducibility 
+* Coding can be done to perform more complex analysis
+
 ### Excel Version
 * It is recommended to use the latest version of Excel to access all the latest features. Download from [office.ucdavis.edu](https://office.ucdavis.edu).
 * Sample files are listed here:
-    - [source data file](data/source_data_file.xlsx)
-    - [power query sample file](data/power_query_sample.xlsx)
+    - [names](data/names.xlsx)
+    - [transaction](data/transactions.xlsx)
+    - [power_query_merge_sample](data/power_query_merge_sample.xlsx)
+    - [power_query_group_and_pivot_sample](data/power_query_group_and_pivot_sample.xlsx)
+
 
 ### Sourcing data
 
@@ -205,9 +215,12 @@ flowchart TB
 * Perform subsequent queries by referencing on the initial connection. Minimize the number of outside connections. 
     - In the PowerQuery Editor, right-click on the query and create a *reference*.
 
+#### Try: 
+1. Load data from the [names.xlsx](data/names.xlsx) file and from the [transactions.xlsx](data/transactions.xlsx) file.
+
 ### Merging tables (JOIN)
 * [Primer on SQL JOIN (Wikipedia)](https://en.wikipedia.org/wiki/Join_(SQL)){target='_blank'}
-* [PowerQuery References on Table.Join](https://learn.microsoft.com/en-us/powerquery-m/table-join)
+* [PowerQuery References on Table.Join](https://learn.microsoft.com/en-us/powerquery-m/table-join){target='_blank'}
 
 #### Full Outer Join
 * Sequence 
