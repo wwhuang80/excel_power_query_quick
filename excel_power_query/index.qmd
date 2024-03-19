@@ -193,8 +193,8 @@ A: Microsoft’s Data Connectivity and Data Preparation technology that lets you
 * Sample files are listed here:
     - [names](data/names.xlsx)
     - [transaction](data/transactions.xlsx)
-    - [power_query_merge_sample](data/power_query_merge_sample.xlsx)
-    - [power_query_group_and_pivot_sample](data/power_query_group_and_pivot_sample.xlsx)
+    - [power_query_examples](data/power_query_examples.xlsx)
+
 
 
 ### Sourcing data
@@ -239,4 +239,7 @@ A: Microsoft’s Data Connectivity and Data Preparation technology that lets you
 
 ### Custom queries (Power Query M formula language)
 
-## Data Export
+## Exporting
+* Power BI
+* Power Pivot
+* Copy/Paste
