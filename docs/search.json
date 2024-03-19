@@ -4,62 +4,41 @@
     "href": "index.html",
     "title": "Excel PowerQuery Intro",
     "section": "",
-    "text": "let Source\n\nin Result\nthis"
+    "text": "Relational Database (RDBMS)\n\nRelational model:\n\nDeveloped by Edgar F. Codd\nBased on the mathematical concept of relations\n\nSQL (Structured Query Language):\n\nInitially called SEQUEL (Structured English Query Language)\nBased on relational algerbra\n\nElements of modern RDBMS:\n\nTables (Tables): collection of relations\nColumns (Fields / Attributes): a variable (with the associated data type).\nRows (Record): a distinct collection of attributes\nPrimary Key: a column that contains a unique value for each record\nForeign Key: a column that references the primary key in another table\nIndex: additional data structure that associates an identifier with a row and/or a column (Excel row or column number)\n\n\n\n\n\n\nDeveloped to improve the efficiency of a database system.\n\n\nNo repeating groups of data. Separate repeating data into tables.\n\n\n\n\n\n\nStudent\nCollege\nMajor\nScore\n\n\n\n\n\nAlice\nL&S\nComputer Science\n60\n\n\n\nAlice\nL&S\nComputer Science\n70\n\n\n\nBob\nAg\nEconomics\n65\n\n\n\nCathy\nCBS\nBiology\n90\n\n\n\n\n\n=&gt;\n\n\n\n\nStudent\nTest\nScore\n\n\n\n\nAlice\nMidterm\n60\n\n\nAlice\nFinal\n70\n\n\nBob\nMidterm\n65\n\n\nCathy\nMidterm\n90\n\n\n\n\n\n\nStudent\nCollege\nMajor\n\n\n\n\nAlice\nL&S\nComputer Science\n\n\nBob\nAg\nEconomics\n\n\nCathy\nCBS\nBiology\n\n\n\n\n\n\nAll non-key columns are only dependent on the primary key.\n\n\n\n\n\n\nStudent\nCollege\nMajor\n\n\n\n\nAlice\nL&S\nComputer Science\n\n\nBob\nAg\nEconomics\n\n\nCathy\nCBS\nBiology\n\n\n\n\n\n\n\n\n\nStudent\nMajor\n\n\n\n\nAlice\nComputer Science\n\n\nBob\nEconomics\n\n\nCathy\nBiology\n\n\n\n\n\n\nCollege\nMajor\n\n\n\n\nL&S\nComputer Science\n\n\nAg\nEconomics\n\n\nCBS\nBiology\n\n\n\n\n\n\nNo transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.\n\n\n\n\n\n\nStudent\nCollege\nMajor\nMajor Code\n\n\n\n\nAlice\nL&S\nComputer Science\nLCOM\n\n\nBob\nAg\nEconomics\nAECO\n\n\nCathy\nCBS\nBiology\nCBIO\n\n\n\n\n\n\n\n\n\nStudent\nMajor Code\n\n\n\n\nAlice\nLCOM\n\n\nBob\nAECO\n\n\nCathy\nCBIO\n\n\n\n\n\n\nMajor\nMajor Code\n\n\n\n\nComputer Science\nLCOM\n\n\nEconomics\nAECO\n\n\nBiology\nCBIO\n\n\n\n\n\n\nCollege\nMajor\n\n\n\n\nL&S\nComputer Science\n\n\nAg\nEconomics\n\n\nCBS\nBiology\n\n\n\n\n\n\n\n\n\nEach variable forms a column.\nEach observation forms a row.\nEach type of observational unit forms a table.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyear\nartist\ntrack\ntime\ndate.entered\nwk1\nwk2\nwk3\n\n\n\n\n2000\n2 Pac\nBaby Don’t Cry\n4:22\n2000-02-26\n87\n82\n72\n\n\n2000\n2Ge+her\nThe Hardest Part Of …\n3:15\n2000-09-02\n91\n87\n92\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyear\nartist\ntime\ntrack\ndate\nweek\nrank\n\n\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-02-26\n1\n87\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-03-04\n2\n82\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-03-11\n3\n72\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-02\n1\n91\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-09\n2\n87\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-16\n3\n92"
   },
   {
     "objectID": "index.html#a-quick-review-of-relational-database",
     "href": "index.html#a-quick-review-of-relational-database",
     "title": "Excel PowerQuery Intro",
     "section": "",
-    "text": "let Source\n\nin Result\nthis"
+    "text": "Relational Database (RDBMS)\n\nRelational model:\n\nDeveloped by Edgar F. Codd\nBased on the mathematical concept of relations\n\nSQL (Structured Query Language):\n\nInitially called SEQUEL (Structured English Query Language)\nBased on relational algerbra\n\nElements of modern RDBMS:\n\nTables (Tables): collection of relations\nColumns (Fields / Attributes): a variable (with the associated data type).\nRows (Record): a distinct collection of attributes\nPrimary Key: a column that contains a unique value for each record\nForeign Key: a column that references the primary key in another table\nIndex: additional data structure that associates an identifier with a row and/or a column (Excel row or column number)\n\n\n\n\n\n\nDeveloped to improve the efficiency of a database system.\n\n\nNo repeating groups of data. Separate repeating data into tables.\n\n\n\n\n\n\nStudent\nCollege\nMajor\nScore\n\n\n\n\n\nAlice\nL&S\nComputer Science\n60\n\n\n\nAlice\nL&S\nComputer Science\n70\n\n\n\nBob\nAg\nEconomics\n65\n\n\n\nCathy\nCBS\nBiology\n90\n\n\n\n\n\n=&gt;\n\n\n\n\nStudent\nTest\nScore\n\n\n\n\nAlice\nMidterm\n60\n\n\nAlice\nFinal\n70\n\n\nBob\nMidterm\n65\n\n\nCathy\nMidterm\n90\n\n\n\n\n\n\nStudent\nCollege\nMajor\n\n\n\n\nAlice\nL&S\nComputer Science\n\n\nBob\nAg\nEconomics\n\n\nCathy\nCBS\nBiology\n\n\n\n\n\n\nAll non-key columns are only dependent on the primary key.\n\n\n\n\n\n\nStudent\nCollege\nMajor\n\n\n\n\nAlice\nL&S\nComputer Science\n\n\nBob\nAg\nEconomics\n\n\nCathy\nCBS\nBiology\n\n\n\n\n\n\n\n\n\nStudent\nMajor\n\n\n\n\nAlice\nComputer Science\n\n\nBob\nEconomics\n\n\nCathy\nBiology\n\n\n\n\n\n\nCollege\nMajor\n\n\n\n\nL&S\nComputer Science\n\n\nAg\nEconomics\n\n\nCBS\nBiology\n\n\n\n\n\n\nNo transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.\n\n\n\n\n\n\nStudent\nCollege\nMajor\nMajor Code\n\n\n\n\nAlice\nL&S\nComputer Science\nLCOM\n\n\nBob\nAg\nEconomics\nAECO\n\n\nCathy\nCBS\nBiology\nCBIO\n\n\n\n\n\n\n\n\n\nStudent\nMajor Code\n\n\n\n\nAlice\nLCOM\n\n\nBob\nAECO\n\n\nCathy\nCBIO\n\n\n\n\n\n\nMajor\nMajor Code\n\n\n\n\nComputer Science\nLCOM\n\n\nEconomics\nAECO\n\n\nBiology\nCBIO\n\n\n\n\n\n\nCollege\nMajor\n\n\n\n\nL&S\nComputer Science\n\n\nAg\nEconomics\n\n\nCBS\nBiology\n\n\n\n\n\n\n\n\n\nEach variable forms a column.\nEach observation forms a row.\nEach type of observational unit forms a table.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyear\nartist\ntrack\ntime\ndate.entered\nwk1\nwk2\nwk3\n\n\n\n\n2000\n2 Pac\nBaby Don’t Cry\n4:22\n2000-02-26\n87\n82\n72\n\n\n2000\n2Ge+her\nThe Hardest Part Of …\n3:15\n2000-09-02\n91\n87\n92\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nyear\nartist\ntime\ntrack\ndate\nweek\nrank\n\n\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-02-26\n1\n87\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-03-04\n2\n82\n\n\n2000\n2 Pac\n4:22\nBaby Don’t Cry\n2000-03-11\n3\n72\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-02\n1\n91\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-09\n2\n87\n\n\n2000\n2Ge+her\n3:15\nThe Hardest Part Of …\n2000-09-16\n3\n92"
   },
   {
-    "objectID": "index.html#using-powerquery",
-    "href": "index.html#using-powerquery",
+    "objectID": "index.html#data-pipeline",
+    "href": "index.html#data-pipeline",
     "title": "Excel PowerQuery Intro",
-    "section": "Using PowerQuery",
-    "text": "Using PowerQuery"
+    "section": "Data pipeline",
+    "text": "Data pipeline\n\n\n\n\n\n---\ntitle: Data Pipeline\n---\nflowchart TB\n    A[data entry] --&gt; D{data ingestion}\n    B[sensors] --&gt; D\n    C[applications] --&gt; D\n    D --&gt; E[\"data warehouse\"]\n    E --&gt; F{Extract Transform Load}\n    F --&gt; G[reports]\n    F --&gt; H[dashboards]\n    F --&gt; I[predictive models]\n\n\n\n\n\n\n\n\nETL Extract, Transform, Load\n\nActions to transform data into Codd’s 3NF:\n\nCreate new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)\nUpdate the original columns by creating new foreign key columns (ADD COLUMN) and remove redunant columns\n\nActions to transform data from Codd’s 3NF:\n\nMerge (known as JOIN in relational algebra)\n\nTools for extracting and transforming data:\n\nPivot (tranform data from tall to wide)\nUnpivot (transform data from wide to tall)\nStack (create hierarchical index)\nUnstack (convert hierarchical index into columns)\nSplitting columns\nCombining columns"
   },
   {
-    "objectID": "index.html#data-ingestion",
-    "href": "index.html#data-ingestion",
+    "objectID": "index.html#using-powerquery-to-perform-etl",
+    "href": "index.html#using-powerquery-to-perform-etl",
     "title": "Excel PowerQuery Intro",
-    "section": "Data ingestion",
-    "text": "Data ingestion"
+    "section": "Using PowerQuery to perform ETL",
+    "text": "Using PowerQuery to perform ETL\nQ: What is Power Query? A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience.\n\nCoding is not required\nThe underlying code is available to check for correctness and reproducibility\nCoding can be done to perform more complex analysis\n\n\nExcel Version\n\nIt is recommended to use the latest version of Excel to access all the latest features. Download from office.ucdavis.edu.\nSample files are listed here:\n\nnames\ntransaction\npower_query_examples\n\n\n\n\nSourcing data\n\nData sources can be other Excel files, files, a database connection, or other data sources.\n\n\nHow to:\n\nGo to the Data tab.\nClick on the top left button Get Data (Power Query).\nChoose the data source. (For this example, import from Excel and connect to the source data file.)\nPromote headers if the first row of data contains headers. Otherwise, manually rename columns.\n\n\n\nBest practices\n\nAlways confirm column names, set data types for each columns. (Make sure to always set dollar values as Currency.)\nSet key columns as needed.\nPerform subsequent queries by referencing on the initial connection. Minimize the number of outside connections.\n\nIn the PowerQuery Editor, right-click on the query and create a reference.\n\n\n\n\nTry:\n\nLoad data from the names.xlsx file and from the transactions.xlsx file.\n\n\n\n\nMerging tables (JOIN)\n\nPrimer on SQL JOIN (Wikipedia)\nPowerQuery References on Table.Join\n\n\nFull Outer Join\n\nSequence\n\n\n\nInner Join\n\n\nLeft Outer Join Example\n\n\nLeft Anti Join Example\n\n\n\nFilter rows\n\n\nAggregate data with GROUP BY\n\n\nPivot and Unpivot data\n\n\nCustom queries (Power Query M formula language)"
   },
   {
-    "objectID": "index.html#data-transformation",
-    "href": "index.html#data-transformation",
+    "objectID": "index.html#exporting",
+    "href": "index.html#exporting",
     "title": "Excel PowerQuery Intro",
-    "section": "Data transformation",
-    "text": "Data transformation"
-  },
-  {
-    "objectID": "index.html#custom-queries",
-    "href": "index.html#custom-queries",
-    "title": "Excel PowerQuery Intro",
-    "section": "Custom queries",
-    "text": "Custom queries"
-  },
-  {
-    "objectID": "index.html#data-export",
-    "href": "index.html#data-export",
-    "title": "Excel PowerQuery Intro",
-    "section": "Data export",
-    "text": "Data export"
+    "section": "Exporting",
+    "text": "Exporting\n\nPower BI\nPower Pivot\nCopy/Paste"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Fisher,R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76."
-  },
-  {
-    "objectID": "about.html#references",
-    "href": "about.html#references",
-    "title": "About",
-    "section": "",
-    "text": "Fisher,R. A.. (1988). Iris. UCI Machine Learning Repository. https://doi.org/10.24432/C56C76."
+    "text": "A quick introduction to Power Query"
   }
 ]

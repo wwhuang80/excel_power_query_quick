@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Excel PowerQuery - Excel PowerQuery Intro</title>
+<title>Excel PowerQuery Intro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -100,6 +66,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -113,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Excel PowerQuery</span>
+    <span class="navbar-title">Excel PowerQuery Intro</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -146,12 +115,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-quick-review-of-relational-database" id="toc-a-quick-review-of-relational-database" class="nav-link active" data-scroll-target="#a-quick-review-of-relational-database">A quick review of relational database</a></li>
-  <li><a href="#using-powerquery" id="toc-using-powerquery" class="nav-link" data-scroll-target="#using-powerquery">Using PowerQuery</a></li>
-  <li><a href="#data-ingestion" id="toc-data-ingestion" class="nav-link" data-scroll-target="#data-ingestion">Data ingestion</a></li>
-  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data transformation</a></li>
-  <li><a href="#custom-queries" id="toc-custom-queries" class="nav-link" data-scroll-target="#custom-queries">Custom queries</a></li>
-  <li><a href="#data-export" id="toc-data-export" class="nav-link" data-scroll-target="#data-export">Data export</a></li>
+  <li><a href="#a-quick-review-of-relational-database" id="toc-a-quick-review-of-relational-database" class="nav-link active" data-scroll-target="#a-quick-review-of-relational-database">A quick review of relational database</a>
+  <ul class="collapse">
+  <li><a href="#codds-third-normal-form-3nf" id="toc-codds-third-normal-form-3nf" class="nav-link" data-scroll-target="#codds-third-normal-form-3nf">Codd’s Third Normal Form (3NF):</a></li>
+  <li><a href="#hadley-wickhams-tidy-data" id="toc-hadley-wickhams-tidy-data" class="nav-link" data-scroll-target="#hadley-wickhams-tidy-data">Hadley Wickham’s <em>tidy data</em>:</a></li>
+  </ul></li>
+  <li><a href="#data-pipeline" id="toc-data-pipeline" class="nav-link" data-scroll-target="#data-pipeline">Data pipeline</a>
+  <ul class="collapse">
+  <li><a href="#etl-extract-transform-load" id="toc-etl-extract-transform-load" class="nav-link" data-scroll-target="#etl-extract-transform-load">ETL Extract, Transform, Load</a></li>
+  </ul></li>
+  <li><a href="#using-powerquery-to-perform-etl" id="toc-using-powerquery-to-perform-etl" class="nav-link" data-scroll-target="#using-powerquery-to-perform-etl">Using PowerQuery to perform ETL</a>
+  <ul class="collapse">
+  <li><a href="#excel-version" id="toc-excel-version" class="nav-link" data-scroll-target="#excel-version">Excel Version</a></li>
+  <li><a href="#sourcing-data" id="toc-sourcing-data" class="nav-link" data-scroll-target="#sourcing-data">Sourcing data</a></li>
+  <li><a href="#merging-tables-join" id="toc-merging-tables-join" class="nav-link" data-scroll-target="#merging-tables-join">Merging tables (JOIN)</a></li>
+  <li><a href="#filter-rows" id="toc-filter-rows" class="nav-link" data-scroll-target="#filter-rows">Filter rows</a></li>
+  <li><a href="#aggregate-data-with-group-by" id="toc-aggregate-data-with-group-by" class="nav-link" data-scroll-target="#aggregate-data-with-group-by">Aggregate data with GROUP BY</a></li>
+  <li><a href="#pivot-and-unpivot-data" id="toc-pivot-and-unpivot-data" class="nav-link" data-scroll-target="#pivot-and-unpivot-data">Pivot and Unpivot data</a></li>
+  <li><a href="#custom-queries-power-query-m-formula-language" id="toc-custom-queries-power-query-m-formula-language" class="nav-link" data-scroll-target="#custom-queries-power-query-m-formula-language">Custom queries (Power Query M formula language)</a></li>
+  </ul></li>
+  <li><a href="#exporting" id="toc-exporting" class="nav-link" data-scroll-target="#exporting">Exporting</a></li>
   </ul>
 </nav>
     </div>
@@ -179,25 +162,614 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="a-quick-review-of-relational-database" class="level2">
 <h2 class="anchored" data-anchor-id="a-quick-review-of-relational-database">A quick review of relational database</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>let Source</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>in Result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="./data/iris.csv">this</a></p>
+<ul>
+<li>Relational Database (RDBMS)
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Relational_model">Relational model</a>:
+<ul>
+<li>Developed by Edgar F. Codd</li>
+<li>Based on the mathematical concept of relations</li>
+</ul></li>
+<li>SQL (Structured Query Language):
+<ul>
+<li>Initially called SEQUEL (Structured English Query Language)</li>
+<li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra">relational algerbra</a></li>
+</ul></li>
+<li>Elements of modern RDBMS:
+<ul>
+<li>Tables (Tables): collection of relations</li>
+<li>Columns (Fields / Attributes): a variable (with the associated data type).</li>
+<li>Rows (Record): a distinct collection of attributes</li>
+<li>Primary Key: a column that contains a unique value for each record</li>
+<li>Foreign Key: a column that references the primary key in another table</li>
+<li>Index: additional data structure that associates an identifier with a row and/or a column (Excel row or column number)</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="codds-third-normal-form-3nf" class="level3">
+<h3 class="anchored" data-anchor-id="codds-third-normal-form-3nf">Codd’s Third Normal Form (3NF):</h3>
+<ul>
+<li>Developed to improve the efficiency of a database system.</li>
+</ul>
+<ol type="1">
+<li><strong>No repeating groups of data. Separate repeating data into tables.</strong></li>
+</ol>
+<div class="columns" style="display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>College</th>
+<th>Major</th>
+<th>Score</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>L&amp;S</td>
+<td>Computer Science</td>
+<td>60</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Alice</td>
+<td>L&amp;S</td>
+<td>Computer Science</td>
+<td>70</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Bob</td>
+<td>Ag</td>
+<td>Economics</td>
+<td>65</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Cathy</td>
+<td>CBS</td>
+<td>Biology</td>
+<td>90</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p>=&gt;</p>
+</div><div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Test</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>Midterm</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>Alice</td>
+<td>Final</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td>Bob</td>
+<td>Midterm</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>Cathy</td>
+<td>Midterm</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>College</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>L&amp;S</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Ag</td>
+<td>Economics</td>
+</tr>
+<tr class="odd">
+<td>Cathy</td>
+<td>CBS</td>
+<td>Biology</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>All non-key columns are only dependent on the primary key.</strong></li>
+</ol>
+<div class="columns" style="display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>College</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>L&amp;S</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Ag</td>
+<td>Economics</td>
+</tr>
+<tr class="odd">
+<td>Cathy</td>
+<td>CBS</td>
+<td>Biology</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+
+</div><div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Economics</td>
+</tr>
+<tr class="odd">
+<td>Cathy</td>
+<td>Biology</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>College</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L&amp;S</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>Ag</td>
+<td>Economics</td>
+</tr>
+<tr class="odd">
+<td>CBS</td>
+<td>Biology</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>No transitive dependence. If field A is dependent on B, and B is dependent on C, then one of the relations can be extracted into another table.</strong></li>
+</ol>
+<div class="columns" style="display: flex !important;">
+<div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>College</th>
+<th>Major</th>
+<th>Major Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>L&amp;S</td>
+<td>Computer Science</td>
+<td>LCOM</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Ag</td>
+<td>Economics</td>
+<td>AECO</td>
+</tr>
+<tr class="odd">
+<td>Cathy</td>
+<td>CBS</td>
+<td>Biology</td>
+<td>CBIO</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="display: flex; justify-content: center; align-items: center;">
+<p></p>
+</div><div class="column" style="width:45%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Major Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>LCOM</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>AECO</td>
+</tr>
+<tr class="odd">
+<td>Cathy</td>
+<td>CBIO</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Major</th>
+<th>Major Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Computer Science</td>
+<td>LCOM</td>
+</tr>
+<tr class="even">
+<td>Economics</td>
+<td>AECO</td>
+</tr>
+<tr class="odd">
+<td>Biology</td>
+<td>CBIO</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>College</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L&amp;S</td>
+<td>Computer Science</td>
+</tr>
+<tr class="even">
+<td>Ag</td>
+<td>Economics</td>
+</tr>
+<tr class="odd">
+<td>CBS</td>
+<td>Biology</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="using-powerquery" class="level2">
-<h2 class="anchored" data-anchor-id="using-powerquery">Using PowerQuery</h2>
+<section id="hadley-wickhams-tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="hadley-wickhams-tidy-data">Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10"><em>tidy data</em></a>:</h3>
+<ol type="1">
+<li>Each variable forms a column.</li>
+<li>Each observation forms a row.</li>
+<li>Each type of observational unit forms a table.</li>
+</ol>
+<section id="example-of-a-messy-data-set-also-known-as-wide-format" class="level5">
+<h5 class="anchored" data-anchor-id="example-of-a-messy-data-set-also-known-as-wide-format">Example of a messy data set (also known as wide format)</h5>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>year</th>
+<th>artist</th>
+<th>track</th>
+<th>time</th>
+<th>date.entered</th>
+<th>wk1</th>
+<th>wk2</th>
+<th>wk3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2000</td>
+<td>2 Pac</td>
+<td>Baby Don’t Cry</td>
+<td>4:22</td>
+<td>2000-02-26</td>
+<td>87</td>
+<td>82</td>
+<td>72</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>2Ge+her</td>
+<td>The Hardest Part Of …</td>
+<td>3:15</td>
+<td>2000-09-02</td>
+<td>91</td>
+<td>87</td>
+<td>92</td>
+</tr>
+</tbody>
+</table>
+<p></p>
 </section>
-<section id="data-ingestion" class="level2">
-<h2 class="anchored" data-anchor-id="data-ingestion">Data ingestion</h2>
+<section id="example-of-a-tidy-data-set-also-known-as-tall-format" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-a-tidy-data-set-also-known-as-tall-format">Example of a tidy data set (also known as tall format)</h4>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>year</th>
+<th>artist</th>
+<th>time</th>
+<th>track</th>
+<th>date</th>
+<th>week</th>
+<th>rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2000</td>
+<td>2 Pac</td>
+<td>4:22</td>
+<td>Baby Don’t Cry</td>
+<td>2000-02-26</td>
+<td>1</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>2 Pac</td>
+<td>4:22</td>
+<td>Baby Don’t Cry</td>
+<td>2000-03-04</td>
+<td>2</td>
+<td>82</td>
+</tr>
+<tr class="odd">
+<td>2000</td>
+<td>2 Pac</td>
+<td>4:22</td>
+<td>Baby Don’t Cry</td>
+<td>2000-03-11</td>
+<td>3</td>
+<td>72</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>2Ge+her</td>
+<td>3:15</td>
+<td>The Hardest Part Of …</td>
+<td>2000-09-02</td>
+<td>1</td>
+<td>91</td>
+</tr>
+<tr class="odd">
+<td>2000</td>
+<td>2Ge+her</td>
+<td>3:15</td>
+<td>The Hardest Part Of …</td>
+<td>2000-09-09</td>
+<td>2</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>2Ge+her</td>
+<td>3:15</td>
+<td>The Hardest Part Of …</td>
+<td>2000-09-16</td>
+<td>3</td>
+<td>92</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="data-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="data-transformation">Data transformation</h2>
 </section>
-<section id="custom-queries" class="level2">
-<h2 class="anchored" data-anchor-id="custom-queries">Custom queries</h2>
 </section>
-<section id="data-export" class="level2">
-<h2 class="anchored" data-anchor-id="data-export">Data export</h2>
+<section id="data-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="data-pipeline">Data pipeline</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">---
+title: Data Pipeline
+---
+flowchart TB
+    A[data entry] --&gt; D{data ingestion}
+    B[sensors] --&gt; D
+    C[applications] --&gt; D
+    D --&gt; E["data warehouse"]
+    E --&gt; F{Extract Transform Load}
+    F --&gt; G[reports]
+    F --&gt; H[dashboards]
+    F --&gt; I[predictive models]
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="etl-extract-transform-load" class="level3">
+<h3 class="anchored" data-anchor-id="etl-extract-transform-load">ETL Extract, Transform, Load</h3>
+<ul>
+<li>Actions to transform data into Codd’s 3NF:
+<ul>
+<li>Create new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)</li>
+<li>Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redunant columns</li>
+</ul></li>
+<li>Actions to transform data from Codd’s 3NF:
+<ul>
+<li>Merge (known as JOIN in relational algebra)</li>
+</ul></li>
+<li>Tools for extracting and transforming data:
+<ul>
+<li>Pivot (tranform data from tall to wide)</li>
+<li>Unpivot (transform data from wide to tall)</li>
+<li>Stack (create hierarchical index)</li>
+<li>Unstack (convert hierarchical index into columns)</li>
+<li>Splitting columns</li>
+<li>Combining columns</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="using-powerquery-to-perform-etl" class="level2">
+<h2 class="anchored" data-anchor-id="using-powerquery-to-perform-etl">Using PowerQuery to perform ETL</h2>
+<p>Q: What is <a href="https://powerquery.microsoft.com/en-us/" target="_blank">Power Query</a>? A: Microsoft’s Data Connectivity and Data Preparation technology that lets you seamlessly access data stored in hundreds of sources and reshape it to fit your needs—all with an easy to use, engaging, no-code experience.</p>
+<ul>
+<li>Coding is not required</li>
+<li>The underlying code is available to check for correctness and reproducibility</li>
+<li>Coding can be done to perform more complex analysis</li>
+</ul>
+<section id="excel-version" class="level3">
+<h3 class="anchored" data-anchor-id="excel-version">Excel Version</h3>
+<ul>
+<li>It is recommended to use the latest version of Excel to access all the latest features. Download from <a href="https://office.ucdavis.edu">office.ucdavis.edu</a>.</li>
+<li>Sample files are listed here:
+<ul>
+<li><a href="data/names.xlsx">names</a></li>
+<li><a href="data/transactions.xlsx">transaction</a></li>
+<li><a href="data/power_query_examples.xlsx">power_query_examples</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="sourcing-data" class="level3">
+<h3 class="anchored" data-anchor-id="sourcing-data">Sourcing data</h3>
+<ul>
+<li>Data sources can be other Excel files, files, a database connection, or other data sources.</li>
+</ul>
+<section id="how-to" class="level4">
+<h4 class="anchored" data-anchor-id="how-to">How to:</h4>
+<ol type="1">
+<li>Go to the <strong>Data</strong> tab.</li>
+<li>Click on the top left button <em>Get Data (Power Query)</em>.</li>
+<li>Choose the data source. (For this example, import from Excel and connect to the source data file.)</li>
+<li>Promote headers if the first row of data contains headers. Otherwise, manually rename columns.</li>
+</ol>
+</section>
+<section id="best-practices" class="level4">
+<h4 class="anchored" data-anchor-id="best-practices">Best practices</h4>
+<ul>
+<li>Always confirm column names, set data types for each columns. (Make sure to <em>always</em> set dollar values as Currency.)</li>
+<li>Set key columns as needed.</li>
+<li>Perform subsequent queries by referencing on the initial connection. Minimize the number of outside connections.
+<ul>
+<li>In the PowerQuery Editor, right-click on the query and create a <em>reference</em>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="try" class="level4">
+<h4 class="anchored" data-anchor-id="try">Try:</h4>
+<ol type="1">
+<li>Load data from the <a href="data/names.xlsx">names.xlsx</a> file and from the <a href="data/transactions.xlsx">transactions.xlsx</a> file.</li>
+</ol>
+</section>
+</section>
+<section id="merging-tables-join" class="level3">
+<h3 class="anchored" data-anchor-id="merging-tables-join">Merging tables (JOIN)</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Join_(SQL)" target="_blank">Primer on SQL JOIN (Wikipedia)</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powerquery-m/table-join" target="_blank">PowerQuery References on Table.Join</a></li>
+</ul>
+<section id="full-outer-join" class="level4">
+<h4 class="anchored" data-anchor-id="full-outer-join">Full Outer Join</h4>
+<ul>
+<li>Sequence</li>
+</ul>
+</section>
+<section id="inner-join" class="level4">
+<h4 class="anchored" data-anchor-id="inner-join">Inner Join</h4>
+</section>
+<section id="left-outer-join-example" class="level4">
+<h4 class="anchored" data-anchor-id="left-outer-join-example">Left Outer Join Example</h4>
+</section>
+<section id="left-anti-join-example" class="level4">
+<h4 class="anchored" data-anchor-id="left-anti-join-example">Left Anti Join Example</h4>
+</section>
+</section>
+<section id="filter-rows" class="level3">
+<h3 class="anchored" data-anchor-id="filter-rows">Filter rows</h3>
+</section>
+<section id="aggregate-data-with-group-by" class="level3">
+<h3 class="anchored" data-anchor-id="aggregate-data-with-group-by">Aggregate data with GROUP BY</h3>
+</section>
+<section id="pivot-and-unpivot-data" class="level3">
+<h3 class="anchored" data-anchor-id="pivot-and-unpivot-data">Pivot and Unpivot data</h3>
+</section>
+<section id="custom-queries-power-query-m-formula-language" class="level3">
+<h3 class="anchored" data-anchor-id="custom-queries-power-query-m-formula-language">Custom queries (Power Query M formula language)</h3>
+</section>
+</section>
+<section id="exporting" class="level2">
+<h2 class="anchored" data-anchor-id="exporting">Exporting</h2>
+<ul>
+<li>Power BI</li>
+<li>Power Pivot</li>
+<li>Copy/Paste</li>
+</ul>
 
 
 </section>
