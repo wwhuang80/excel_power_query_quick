@@ -126,11 +126,11 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#using-powerquery-to-perform-etl" id="toc-using-powerquery-to-perform-etl" class="nav-link" data-scroll-target="#using-powerquery-to-perform-etl">Using PowerQuery to perform ETL</a>
   <ul class="collapse">
-  <li><a href="#excel-version" id="toc-excel-version" class="nav-link" data-scroll-target="#excel-version">Excel Version</a></li>
+  <li><a href="#using-excel" id="toc-using-excel" class="nav-link" data-scroll-target="#using-excel">Using Excel</a></li>
   <li><a href="#sourcing-data" id="toc-sourcing-data" class="nav-link" data-scroll-target="#sourcing-data">Sourcing data</a></li>
   <li><a href="#merging-tables-join" id="toc-merging-tables-join" class="nav-link" data-scroll-target="#merging-tables-join">Merging tables (JOIN)</a></li>
   <li><a href="#filter-rows" id="toc-filter-rows" class="nav-link" data-scroll-target="#filter-rows">Filter rows</a></li>
-  <li><a href="#combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" id="toc-combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" class="nav-link" data-scroll-target="#combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns">Combining columns, splitting columns, create new columns based on other columns, or remove columns</a></li>
+  <li><a href="#combining-splitting-columns-create-new-columns-and-remove-columns" id="toc-combining-splitting-columns-create-new-columns-and-remove-columns" class="nav-link" data-scroll-target="#combining-splitting-columns-create-new-columns-and-remove-columns">Combining, splitting columns, create new columns, and remove columns</a></li>
   <li><a href="#aggregate-data-with-group-by" id="toc-aggregate-data-with-group-by" class="nav-link" data-scroll-target="#aggregate-data-with-group-by">Aggregate data with GROUP BY</a></li>
   <li><a href="#pivot-and-unpivot-data" id="toc-pivot-and-unpivot-data" class="nav-link" data-scroll-target="#pivot-and-unpivot-data">Pivot and Unpivot data</a></li>
   <li><a href="#custom-queries-power-query-m-formula-language" id="toc-custom-queries-power-query-m-formula-language" class="nav-link" data-scroll-target="#custom-queries-power-query-m-formula-language">Custom queries (Power Query M formula language)</a></li>
@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Relational Database (RDBMS)
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Relational_model">Relational model</a>:
+<li><a href="https://en.wikipedia.org/wiki/Relational_model" target="_blank">Relational model</a>:
 <ul>
 <li>Developed by Edgar F. Codd</li>
 <li>Based on the mathematical concept of relations</li>
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <li>SQL (Structured Query Language):
 <ul>
 <li>Initially called SEQUEL (Structured English Query Language)</li>
-<li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra">relational algerbra</a></li>
+<li>Based on <a href="https://en.wikipedia.org/wiki/Relational_algebra" target="_blank">relational algerbra</a></li>
 </ul></li>
 <li>Examples of RDBMS:
 <ul>
@@ -495,9 +495,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="hadley-wickhams-tidy-data" class="level3">
-<h3 class="anchored" data-anchor-id="hadley-wickhams-tidy-data">Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10"><em>tidy data</em></a>:</h3>
+<h3 class="anchored" data-anchor-id="hadley-wickhams-tidy-data">Hadley Wickham’s <a href="https://www.jstatsoft.org/article/view/v059i10" target="_blank"><em>tidy data</em></a>:</h3>
 <p>An influential article on how to structure data for statistical learning and analysis.</p>
-<p>What makes a dataset “tidy”: 1. Each variable forms a column. 2. Each observation forms a row. 3. Each type of observational unit forms a table.</p>
+<p>What makes a dataset “tidy”:</p>
+<ol type="1">
+<li><p>Each variable forms a column.</p></li>
+<li><p>Each observation forms a row.</p></li>
+<li><p>Each type of observational unit forms a table.</p></li>
+</ol>
 <section id="example-of-a-messy-data-set-also-known-as-wide-format" class="level5" style="background-color: AliceBlue;">
 <h5 style="background-color: AliceBlue;" class="anchored" data-anchor-id="example-of-a-messy-data-set-also-known-as-wide-format">Example of a messy data set (also known as wide format)</h5>
 <table class="table">
@@ -671,12 +676,12 @@ flowchart TB
 </ul></li>
 <li>Tools for extracting and transforming data:
 <ul>
-<li>Pivot (transform data from tall to wide)</li>
-<li>Unpivot (transform data from wide to tall)</li>
-<li>Stack (create hierarchical index)</li>
-<li>Unstack (convert hierarchical index into columns)</li>
 <li>Splitting columns</li>
 <li>Combining columns</li>
+<li>Pivot (transform data from tall to wide)</li>
+<li>Unpivot (transform data from wide to tall)</li>
+<li>Stack (create hierarchical index) [Not discussed here]</li>
+<li>Unstack (convert hierarchical index into columns) [Not discussed here]</li>
 </ul></li>
 </ul>
 </section>
@@ -705,15 +710,15 @@ flowchart TB
 </div>
 </div>
 <ul>
-<li>A query (M Script) is reusable. (You can run the same query with updated source files to get updated results.)</li>
-<li>Each step of a query transformation is viewable for troubleshooting.</li>
-<li>The query is portable. (Because it’s a documented workflow and not a sequence of user actions, it can be shared with others.)</li>
-<li>The underlying M Script is available to check for correctness and reproducibility.</li>
-<li>Coding is not required.</li>
-<li>Coding can be done to perform more complex analysis.</li>
+<li><p>A query (M Script) is reusable. (You can run the same query with updated source files to get updated results.)</p></li>
+<li><p>Each step of a query transformation is viewable for troubleshooting.</p></li>
+<li><p>The query is portable. (Because it’s a documented workflow and not a sequence of user actions, it can be shared with others.)</p></li>
+<li><p>The underlying M Script is available to check for correctness and reproducibility.</p></li>
+<li><p>Coding is not required.</p></li>
+<li><p>Coding can be done to perform more complex analysis.</p></li>
 </ul>
-<section id="excel-version" class="level3">
-<h3 class="anchored" data-anchor-id="excel-version">Excel Version</h3>
+<section id="using-excel" class="level3">
+<h3 class="anchored" data-anchor-id="using-excel">Using Excel</h3>
 <ul>
 <li>It is recommended to use the latest version of Excel to access all the latest features. Download from <a href="https://office.ucdavis.edu">office.ucdavis.edu</a>.</li>
 <li>Sample files for this reader are listed here:
@@ -1121,7 +1126,15 @@ flowchart TB
 </section>
 <section id="example-1" class="level4">
 <h4 class="anchored" data-anchor-id="example-1">Example:</h4>
-<p>To merge the names and transactions tables: 1. Select the “names” table (the first table selected is the <em>left</em> table) 2. Click the <strong>Merge Queries</strong> button. 3. Select the “transactions” table to merge (this is the <em>right</em> table) 4. Select the index column (use the Email column) to merge on. 5. Press <strong>Ok</strong>. 6. If the merge results in a <em>nested column</em>, you can expand the <em>nested column</em> as needed by clicking on the button in the column name.</p>
+<p>To merge the names and transactions tables:</p>
+<ol type="1">
+<li>Select the “names” table (the first table selected is the <em>left</em> table)</li>
+<li>Click the <strong>Merge Queries</strong> button.</li>
+<li>Select the “transactions” table to merge (this is the <em>right</em> table)</li>
+<li>Select the index column (use the Email column) to merge on.</li>
+<li>Press <strong>Ok</strong>.</li>
+<li>If the merge results in a <em>nested column</em>, you can expand the <em>nested column</em> as needed by clicking on the button in the column name.</li>
+</ol>
 </section>
 </section>
 <section id="filter-rows" class="level3">
@@ -1133,15 +1146,23 @@ flowchart TB
 <section id="example-2" class="level4">
 <h4 class="anchored" data-anchor-id="example-2">Example:</h4>
 <ul>
-<li>Filter out Alice by clicking the Email Column and unchecking alice.wonderland@example.com</li>
+<li>Filter out Alice by clicking the Email Column and unchecking “alice.wonderland@example.com”</li>
 </ul>
 </section>
 </section>
-<section id="combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns" class="level3">
-<h3 class="anchored" data-anchor-id="combining-columns-splitting-columns-create-new-columns-based-on-other-columns-or-remove-columns">Combining columns, splitting columns, create new columns based on other columns, or remove columns</h3>
+<section id="combining-splitting-columns-create-new-columns-and-remove-columns" class="level3">
+<h3 class="anchored" data-anchor-id="combining-splitting-columns-create-new-columns-and-remove-columns">Combining, splitting columns, create new columns, and remove columns</h3>
 <ul>
-<li>To merge multiple columns: select the columns, then click the <strong>Merge Columns</strong> button in the <strong>Transform</strong> panel.</li>
-<li>To split a column: select the column, then click the <strong>Split Column</strong> button in the <strong>Transform</strong> panel.</li>
+<li>To merge multiple columns
+<ul>
+<li>select the columns</li>
+<li>click the <strong>Merge Columns</strong> button in the <strong>Transform</strong> panel.</li>
+</ul></li>
+<li>To split a column:
+<ul>
+<li>select the column</li>
+<li>click the <strong>Split Column</strong> button in the <strong>Transform</strong> panel.</li>
+</ul></li>
 <li>Create new columns:
 <ul>
 <li>Conditional columns, in the <strong>Add Column</strong> panel, click the <strong>Conditional Column</strong> button, and fill out the condition.</li>
@@ -1168,19 +1189,19 @@ flowchart TB
 <section id="example-3" class="level4">
 <h4 class="anchored" data-anchor-id="example-3">Example</h4>
 <ul>
-<li>Combine the Last Name and the First Name by selecting both Columns and click the <strong>Merge Columns</strong> button.</li>
-<li>Create new columns called <strong>Month</strong> and <strong>Year</strong> by selecting the <em>Transaction Date</em> column, then click the <strong>Date</strong> button, and then choose “Year” and “Month” respectively.</li>
-<li>Sort the records by the <em>Transaction Date</em> and clicking the button on the column name and sort accordingly.</li>
-<li>Remove the <em>Transaction Date</em> column by selecting the column first, then clicking the *Remove Columns** button.</li>
+<li><p>Combine the Last Name and the First Name by selecting both Columns and click the <strong>Merge Columns</strong> button.</p></li>
+<li><p>Create new columns called <strong>Month</strong> and <strong>Year</strong> by selecting the <em>Transaction Date</em> column, then click the <strong>Date</strong> button, and then choose “Year” and “Month” respectively.</p></li>
+<li><p>Sort the records by the <em>Transaction Date</em> and clicking the button on the column name and sort accordingly.</p></li>
+<li><p>Remove the <em>Transaction Date</em> column by selecting the column first, then clicking the *Remove Columns** button.</p></li>
 </ul>
 </section>
 </section>
 <section id="aggregate-data-with-group-by" class="level3">
 <h3 class="anchored" data-anchor-id="aggregate-data-with-group-by">Aggregate data with GROUP BY</h3>
 <ul>
-<li>In the <em>Transform Panel</em>, click on the <strong>Group By</strong> button, choose the <strong>Advanced</strong> option, then add the columns to grouping (the order of grouping matters).</li>
-<li>For aggregation, choose the <em>New column name</em>, the <em>Operation</em> to aggregate the data, and the <em>Column</em> the operation is performed on. It’s possible to aggregate on multiple columns.</li>
-<li>Columns not used in <em>grouping</em> or <em>aggregation</em> are dropped fro the output.</li>
+<li><p>In the <em>Transform Panel</em>, click on the <strong>Group By</strong> button, choose the <strong>Advanced</strong> option, then add the columns to grouping (the order of grouping matters).</p></li>
+<li><p>For aggregation, choose the <em>New column name</em>, the <em>Operation</em> to aggregate the data, and the <em>Column</em> the operation is performed on. It’s possible to aggregate on multiple columns.</p></li>
+<li><p>Columns not used in <em>grouping</em> or <em>aggregation</em> are dropped fro the output.</p></li>
 </ul>
 <section id="example-4" class="level4">
 <h4 class="anchored" data-anchor-id="example-4">Example:</h4>
@@ -1207,7 +1228,7 @@ flowchart TB
 <section id="example-6" class="level4">
 <h4 class="anchored" data-anchor-id="example-6">Example:</h4>
 <ul>
-<li>An example of a custom function called “GetRunningTotal” is included in the file.</li>
+<li>An example of a custom function called “GetRunningTotal” is included in the example file.</li>
 </ul>
 </section>
 </section>
