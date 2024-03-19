@@ -9,12 +9,12 @@ format:
 ## A quick review of relational database
 
 * Relational Database (RDBMS)
-    + [Relational model](https://en.wikipedia.org/wiki/Relational_model):
+    + [Relational model](https://en.wikipedia.org/wiki/Relational_model){target='_blank'}:
         - Developed by Edgar F. Codd
         - Based on the mathematical concept of relations
     + SQL (Structured Query Language):
         - Initially called SEQUEL (Structured English Query Language)
-        - Based on [relational algerbra](https://en.wikipedia.org/wiki/Relational_algebra)
+        - Based on [relational algerbra](https://en.wikipedia.org/wiki/Relational_algebra){target='_blank'}
      + Examples of RDBMS:
         - Oracle
         - Postgres
@@ -127,12 +127,15 @@ format:
 ::::
 :::
 
-### Hadley Wickham's [*tidy data*](https://www.jstatsoft.org/article/view/v059i10):
+### Hadley Wickham's [*tidy data*](https://www.jstatsoft.org/article/view/v059i10){target='_blank'}:
 An influential article on how to structure data for statistical learning and analysis.
 
 What makes a dataset "tidy":
+
 1. Each variable forms a column.
+
 2. Each observation forms a row.
+
 3. Each type of observational unit forms a table.
 
 ##### Example of a messy data set (also known as wide format){style='background-color: AliceBlue;'}
@@ -176,15 +179,18 @@ flowchart TB
 * Actions to transform data into Codd's 3NF:
     + Create new tables by subsetting columns (SELECT) and remove duplicates (DISTINCT)
     + Update the original columns by creating new foreign key columns (ADD COLUMN) and remove redundant columns
+
 * Actions to transform data from Codd's 3NF:
     + Merge (known as JOIN in relational algebra)
+
 * Tools for extracting and transforming data:
-    + Pivot (transform data from tall to wide)
-    + Unpivot (transform data from wide to tall)
-    + Stack (create hierarchical index)
-    + Unstack (convert hierarchical index into columns)
     + Splitting columns
     + Combining columns
+    + Pivot (transform data from tall to wide)
+    + Unpivot (transform data from wide to tall)
+    + Stack (create hierarchical index) [Not discussed here]
+    + Unstack (convert hierarchical index into columns) [Not discussed here]
+
 
 ## Using PowerQuery to perform ETL
 
@@ -206,13 +212,18 @@ flowchart LR
 ```
 
 * A query (M Script) is reusable. (You can run the same query with updated source files to get updated results.)
+
 * Each step of a query transformation is viewable for troubleshooting.
+
 * The query is portable. (Because it's a documented workflow and not a sequence of user actions, it can be shared with others.)
+
 * The underlying M Script is available to check for correctness and reproducibility.
+
 * Coding is not required.
+
 * Coding can be done to perform more complex analysis.
 
-### Excel Version
+### Using Excel
 * It is recommended to use the latest version of Excel to access all the latest features. Download from [office.ucdavis.edu](https://office.ucdavis.edu).
 * Sample files for this reader are listed here:
     - [names](data/names.xlsx)
@@ -390,6 +401,7 @@ flowchart LR
 
 #### Example:
 To merge the names and transactions tables:
+
 1. Select the "names" table (the first table selected is the *left* table)
 2. Click the **Merge Queries** button.
 3. Select the "transactions" table to merge (this is the *right* table)
@@ -402,15 +414,22 @@ To merge the names and transactions tables:
 * Filter row by clicking on the filter button on the column name. 
 
 #### Example:
-* Filter out Alice by clicking the Email Column and unchecking alice.wonderland@example.com
+* Filter out Alice by clicking the Email Column and unchecking "alice.wonderland@example.com"
 
-### Combining columns, splitting columns, create new columns based on other columns, or remove columns
-* To merge multiple columns: select the columns, then click the **Merge Columns** button in the **Transform** panel.
-* To split a column: select the column, then click the **Split Column** button in the **Transform** panel.
+### Combining, splitting columns, create new columns, and remove columns
+* To merge multiple columns
+    + select the columns
+    + click the **Merge Columns** button in the **Transform** panel.
+
+* To split a column: 
+    + select the column
+    + click the **Split Column** button in the **Transform** panel.
+
 * Create new columns: 
     + Conditional columns, in the **Add Column** panel, click the **Conditional Column** button, and fill out the condition.
     + Custom Column: click the **Custom Column** button, and fill out the formula.
     + The **Column From Examples** tool can help with generating formulas, but it's important to make sure that the formula is correct before proceeding.
+
 * Remove columns:
     + Click on the **Choose Columns** or **Remove Columns** button.
 
@@ -421,13 +440,18 @@ To merge the names and transactions tables:
 
 #### Example
 * Combine the Last Name and the First Name by selecting both Columns and click the **Merge Columns** button.
+
 * Create new columns called **Month** and **Year** by selecting the *Transaction Date* column, then click the **Date** button, and then choose "Year" and "Month" respectively.
+
 * Sort the records by the *Transaction Date* and clicking the button on the column name and sort accordingly.
+
 * Remove the *Transaction Date* column by selecting the column first, then clicking the *Remove Columns** button.
 
 ### Aggregate data with GROUP BY
 * In the *Transform Panel*, click on the **Group By** button, choose the **Advanced** option, then add the columns to grouping (the order of grouping matters). 
+
 * For aggregation, choose the *New column name*, the *Operation* to aggregate the data, and the *Column* the operation is performed on. It's possible to aggregate on multiple columns. 
+
 * Columns not used in *grouping* or *aggregation* are dropped fro the output.
 
 #### Example:
@@ -443,7 +467,7 @@ To merge the names and transactions tables:
 In addition to all the button actions available (not all are covered here), you can create more complex queries by using the M Query Language directly. 
 
 #### Example:
-* An example of a custom function called "GetRunningTotal" is included in the file.
+* An example of a custom function called "GetRunningTotal" is included in the example file.
 
 ## Exporting
 There are many ways to export the data, including: 
