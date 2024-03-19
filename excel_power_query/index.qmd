@@ -14,7 +14,7 @@ format:
         - Based on the mathematical concept of relations
     + SQL (Structured Query Language):
         - Initially called SEQUEL (Structured English Query Language)
-        - Based on [relational algerbra](https://en.wikipedia.org/wiki/Relational_algebra){target='_blank'}
+        - Based on [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra){target='_blank'}
      + Examples of RDBMS:
         - Oracle
         - Postgres
@@ -459,7 +459,7 @@ To merge the names and transactions tables:
 * Group the table by Name, Vendor, Month, Year, use "Transactions Amount Per Vendor" as the new column name, *Sum* as the Operation, and use "Transaction Amount" as the *Column*.
 
 ### Pivot and Unpivot data
-* Select the column to pivot (change from tall to wide format), then click on the **Pivot Column** button. Choose the *Values Column* to use for the nuw columns. If aggregation is needed, click on the *Advanced Options* to aggregate the values.
+* Select the column to pivot (change from tall to wide format), then click on the **Pivot Column** button. Choose the *Values Column* to use for the new columns. If aggregation is needed, click on the *Advanced Options* to aggregate the values.
 
 #### Example:
 * Select the *Vendor* column, then click on the **Pivot Column** button, use "Transactions Amount Per Vendor" as the *Values Column*, and Aggregate using *Sum*.
