@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Excel PowerQuery Intro - About</title>
+<title>Excel PowerQuery Intro - Tips and Tricks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,11 +93,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tips_and_tricks.html"> 
+    <a class="nav-link active" href="./tips_and_tricks.html" aria-current="page"> 
 <span class="menu-text">Tips and Tricks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -116,7 +116,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-quick-introduction-to-power-query" id="toc-a-quick-introduction-to-power-query" class="nav-link active" data-scroll-target="#a-quick-introduction-to-power-query">A quick introduction to Power Query</a></li>
+  <li><a href="#various-tricks" id="toc-various-tricks" class="nav-link active" data-scroll-target="#various-tricks">Various tricks</a>
+  <ul class="collapse">
+  <li><a href="#fill-up-or-down" id="toc-fill-up-or-down" class="nav-link" data-scroll-target="#fill-up-or-down">Fill Up or Down</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -125,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Tips and Tricks</h1>
 </div>
 
 
@@ -142,10 +145,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="a-quick-introduction-to-power-query" class="level1">
-<h1>A quick introduction to Power Query</h1>
+<section id="various-tricks" class="level1">
+<h1>Various tricks</h1>
+<section id="fill-up-or-down" class="level2">
+<h2 class="anchored" data-anchor-id="fill-up-or-down">Fill Up or Down</h2>
+<ul>
+<li>In situations where a multi-level index is outputted to a format that doesn’t support multi-level index, you may see data as shown below:</li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>a</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>null</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>a</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>null</td>
+<td>null</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>To fill the empty null values with the last non-null value in the rows above, select the column and click on <strong>Fill Down</strong>. Choose <strong>Fill Up</strong> if you want to fill the null values based on the next non-null value in the rows below. This option is in the <em>Transform</em> panel in Power Query.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/PQE_transform.PNG" class="img-fluid figure-img"></p>
+<figcaption>Power Query Editor Transform panel</figcaption>
+</figure>
+</div>
+<p><a href="data/fill_up_or_down.xlsx">Example excel file</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
