@@ -1,0 +1,20 @@
+---
+title: "Tips and Tricks"
+---
+
+# Various tricks
+## Fill Up or Down
+* In situations where a multi-level index is outputted to a format that doesn't support multi-level index, you may see data as shown below:
+
+| Group | Category | Value |
+|-------|----------|-------|
+| A     | a        | 1     |
+| null  | b        | 2     |
+| B     | a        | 3     |
+| null  | null     | 4     |
+
+To fill the empty null values with the last non-null value in the rows above, select the column and click on **Fill Down**. Choose **Fill Up** if you want to fill the null values based on the next non-null value in the rows below. This option is in the *Transform* panel in Power Query.
+
+![Power Query Editor Transform panel](data/PQE_transform.PNG)
+
+[Example excel file](data/fill_up_or_down.xlsx)

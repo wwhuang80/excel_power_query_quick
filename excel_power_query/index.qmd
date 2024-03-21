@@ -34,12 +34,12 @@ format:
 
 :::{.columns style='background-color: AliceBlue; display: flex !important;'}
 ::::{.column width="45%"}
-| Student          | College | Major            | Score |
-|------------------|-----|------------------|-----|-----|
-| Alice | L&S | Computer Science | 60 |
-| Alice | L&S | Computer Science | 70 |
-| Bob | Ag  | Economics       | 65 |
-| Cathy| CBS  | Biology         | 90 |
+| Student          | College | Major            | Test | Score |
+|------------------|-----|------------------|-----|-----|------|
+| Alice | L&S | Computer Science | Midterm | 60 |
+| Alice | L&S | Computer Science | Final | 70 |
+| Bob | Ag  | Economics       | Midterm | 65 |
+| Cathy| CBS  | Biology         | Midterm | 90 |
 ::::
 ::::{.column width="10%" style='background-color: AliceBlue; display: flex; justify-content: center; align-items: center;'}
  =>
