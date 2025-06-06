@@ -127,6 +127,47 @@ format:
 ::::
 :::
 
+* A complete set of tables may look like this:
+
+:::{style='background-color: AliceBlue;'}
+| Student id (primary key) | Student |
+|----|---------|
+| 1  | Alice   |
+| 2  | Bob     |
+| 3  | Cathy   |
+
+| Exam id (primary key) | Exam |
+|---------|------|
+| 1       | Midterm |
+| 2       | Final |
+
+| Major | Major Code (primary key) |
+|-------|------------| 
+|Computer Science | LCOM |
+|Economics | AECO |
+|Biology | CBIO |
+
+| Major code (foreign key) | College |
+|----------|-----|
+| LCOM     | L&S |
+| AECO     | Ag  |
+| CBIO     | CBS |
+
+| Student id (foreign key) | Exam id (foreign key) | Score |
+|-----------|------|-------|
+| 1 | 1 | 60 |
+| 1 | 2 | 70 |
+| 2 | 1 | 65 | 
+| 3 | 1 | 90 |
+
+| Student id (foreign key) | Major Code (foreign key) |
+|------------|---------------| 
+| 1         | LCOM |
+| 2         | AECO |
+| 3         | CBIO |
+
+:::
+
 ### Hadley Wickham's [*tidy data*](https://www.jstatsoft.org/article/view/v059i10){target='_blank'}:
 An influential article on how to structure data for statistical learning and analysis.
 
